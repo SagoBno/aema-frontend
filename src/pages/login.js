@@ -1,8 +1,10 @@
 import HappyLogin from "../icons/HappyLogin";
 import LoginCard from "../components/LoginCard";
 import useLoginForm from "../hooks/useLoginForm";
+import useUser from "../hooks/useUser";
 
 const LoginPage = () => {
+  useUser({ redirectIfFound: "/" });
   const [{ errors, isSubmitting, emailInput, passwordInput }, { onSubmit }] =
     useLoginForm();
   return (

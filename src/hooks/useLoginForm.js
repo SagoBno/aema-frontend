@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form";
 
 import { login } from "services/auth";
 
-
-
 const useLoginForm = () => {
   const { push } = useRouter();
   const {
@@ -20,9 +18,7 @@ const useLoginForm = () => {
     setIsSubmitting(true);
     login(data)
       .then(() => push("/"))
-      .catch((e) =>
-        toast.error(e.message)
-      )
+      .catch((e) => toast.error(e.message))
       .finally(() => setIsSubmitting(false));
   };
 

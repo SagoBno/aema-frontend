@@ -1,5 +1,8 @@
-function HomePage() {
-  return <div>Welcome to Next.js!</div>
-}
+import useUser from "../hooks/useUser";
 
-export default HomePage
+const HomePage = () => {
+  useUser({ redirectIfMissing: "/login" });
+  return <div>Welcome to Next.js!</div>;
+};
+
+export default HomePage;

@@ -11,12 +11,6 @@ const LoginForm = ({
   errors,
   isSubmitting,
 }) => {
-  const user = useUser();
-  const { push } = useRouter();
-  if(user) {
-    return push("/");
-  }
-
   return (
     <form onSubmit={onSubmit}>
       <div className="w-full mt-3">

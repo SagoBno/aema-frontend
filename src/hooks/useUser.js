@@ -3,25 +3,22 @@ import { useRouter } from "next/router";
 
 import { getLoginStatus } from "../services/auth";
 
-const useUser = ({ redirectTo, redirectIfFound } = {}) => {
-  const { push } = useRouter();
-  const { data, error, isValidating } = getLoginStatus();
-  console.log({ data, error, isValidating });
-  const user = data?.user;
-  const finished = Boolean(data);
-  const hasUser = Boolean(user);
-
+const useUser = ({ redirectIfFound, redirectIfMissing } = {}) => {
+  const { push, pathname, query } = useRouter();
+  const { data: user, error, isValidating } = getLoginStatus();
+  
   useEffect(() => {
-    if (!redirectTo || !finished) return;
-    if (
-      // If redirectTo is set, redirect if the user was not found.
-      (redirectTo && !redirectIfFound && !hasUser) ||
-      // If redirectIfFound is also set, redirect if the user was found
-      (redirectIfFound && hasUser)
-    ) {
-      push(redirectTo);
+    if (!isValidating) {
+      if (error && redirectIfMissing) {
+        console.log(111);
+        push(`${redirectIfMissing}?prev=${pathname}`);
+      }
+
+      if (user && (redirectIfFound || query.prev)) {
+        push(redirectIfFound || query.prev);
+      }
     }
-  }, [redirectTo, redirectIfFound, finished, hasUser]);
+  }, [redirectIfMissing, redirectIfFound, user, error]);
 
   return error ? null : user;
 };
