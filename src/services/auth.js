@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import axios from "axios";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
 
@@ -6,7 +5,7 @@ const BASE_URL = "http://localhost:3001/auth";
 
 const client = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true
+  withCredentials: true,
 });
 
 export const login = async ({ email, password }) => {
@@ -28,15 +27,16 @@ export const login = async ({ email, password }) => {
   }
 };
 
-export const getLoginStatus = () =>
-  useSWR("/auth/login", async () => {
-    try {
-      const { data } = await client.get("/login");
-      return data.data;
-    } catch (error) {
-      if (error?.response?.status === StatusCodes.UNAUTHORIZED) {
-        throw new Error(ReasonPhrases.UNAUTHORIZED);
-      }
-      console.error(error);
+export const getLoginStatus = async () => {
+  try {
+    const { data } = await client.get("/login");
+    return data.data;
+  } catch (error) {
+    if (error?.response?.status === StatusCodes.UNAUTHORIZED) {
+      throw new Error(ReasonPhrases.UNAUTHORIZED);
     }
-  });
+    console.error(error);
+  }
+};
+
+export const logout = () => client.post("/logout");

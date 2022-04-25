@@ -1,26 +1,37 @@
+import useSWR from "swr";
+import Router from "next/router";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 
-import { getLoginStatus } from "../services/auth";
+import { getLoginStatus, logout as logoutService } from "../services/auth";
 
-const useUser = ({ redirectIfFound, redirectIfMissing } = {}) => {
-  const { push, pathname, query } = useRouter();
-  const { data: user, error, isValidating } = getLoginStatus();
-  
+const LOGIN_KEY = "/auth/login";
+
+const useUser = ({ ifLoggedRedirectTo, ifNotLoggedRedirectTo } = {}) => {
+  const { data: user, error, mutate } = useSWR(LOGIN_KEY, getLoginStatus);
+
+  const isLoading = !error && !user;
+
   useEffect(() => {
-    if (!isValidating) {
-      if (error && redirectIfMissing) {
-        console.log(111);
-        push(`${redirectIfMissing}?prev=${pathname}`);
-      }
-
-      if (user && (redirectIfFound || query.prev)) {
-        push(redirectIfFound || query.prev);
-      }
+    if (!error && ifLoggedRedirectTo) {
+      Router.push(ifLoggedRedirectTo ?? Router.query.prev);
     }
-  }, [redirectIfMissing, redirectIfFound, user, error]);
+    if (error && ifNotLoggedRedirectTo) {
+      Router.push(ifNotLoggedRedirectTo);
+    }
+  }, [error]);
 
-  return error ? null : user;
+  const logout = () =>
+    logoutService().then(() => {
+      sessionStorage.clear();
+      mutate();
+    });
+
+  return {
+    user,
+    isLoading,
+    isError: error,
+    logout,
+  };
 };
 
 export default useUser;

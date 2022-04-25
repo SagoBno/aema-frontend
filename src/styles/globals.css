@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.theme-light {
+  --color-general-bg: 255 255 255;
+  --color-primary-400: 0 230 112;
+  --color-primary-300: 195 234 95;
+  --color-primary-200: 255 235 137;
+  --color-primary-100: 255 234 186;
+  --color-secondary-400: 55 65 81;
+  --color-secondary-300: 107 114 128;
+  --color-secondary-200: 170 176 187;
+  --color-secondary-100: 209 213 218;
+  --color-secondary-0: 255 255 255;
+}
+
+body {
+  background-image: url("/img/main-bg.svg");
+  @apply bg-no-repeat bg-top bg-cover theme-light w-[100vw] min-h-[100vh] text-secondary-400;
+}

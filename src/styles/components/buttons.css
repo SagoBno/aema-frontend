@@ -1,0 +1,59 @@
+/* PRIMARY BUTTON */
+.c_primary-button {
+  @apply text-secondary-0 bg-primary-400 shadow-lg shadow-primary-400/40;
+  @apply font-medium tracking-[2.5px] uppercase text-xs;
+  @apply w-full p-3 rounded-full border-none outline-none cursor-pointer;
+  @apply transition-all duration-300 ease-out;
+  @apply active:transform translate-y-[-1px];
+}
+
+.c_primary-button:hover,
+.c_primary-button--submitting {
+  @apply bg-primary-100 text-secondary-400 transform -translate-y-2 shadow-lg shadow-primary-100/40;
+}
+
+.c_primary-button--submitting {
+  @apply pointer-events-auto cursor-not-allowed;
+}
+
+/* NEXT STEP BUTTON */
+.c_next-step-button {
+  @apply transition-all duration-200 cursor-pointer;
+  @apply rounded-full py-2 px-5 w-fit;
+  @apply bg-primary-400 border border-solid border-transparent text-secondary-0;
+  @apply flex items-center;
+  @apply text-base font-bold;
+}
+
+.c_next-step-button--disabled {
+  @apply pointer-events-none bg-primary-400/50;
+}
+
+.c_next-step-button:hover {
+  @apply bg-primary-400/90;
+}
+
+.c_next-step-button > svg {
+  @apply w-8 ml-3 transition-transform duration-300 ease-in-out;
+}
+
+.c_next-step-button:hover svg {
+  @apply transform translate-x-1;
+}
+
+.c_next-step-button:active {
+  @apply transform scale-95;
+}
+
+/* PREVIOUS STEP BUTTON */
+.c_previous-step-button {
+  @apply transition-all duration-200 cursor-pointer;
+  @apply rounded-full py-2 px-5 w-fit;
+  @apply border border-solid border-secondary-400 text-secondary-400;
+  @apply flex items-center;
+  @apply text-base;
+}
+
+.c_previous-step-button:active {
+  @apply transform scale-95;
+}

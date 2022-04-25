@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import "styles/globals.css";
+import "styles/components.css";
 
 function MyApp({ Component, pageProps }) {
   return (
