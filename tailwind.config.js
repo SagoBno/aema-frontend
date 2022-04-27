@@ -8,10 +8,7 @@ function withOpacityValue(variable) {
 }
 
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -29,6 +26,7 @@ module.exports = {
           100: withOpacityValue("--color-secondary-100"),
           0: withOpacityValue("--color-secondary-0"),
         },
+        error: withOpacityValue("--color-error"),
       },
     },
   },

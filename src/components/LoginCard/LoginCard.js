@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LoginForm from "../forms/LoginForm";
+import LoginForm from "../@forms/LoginForm";
 
 const LoginCard = ({
   onSubmit,

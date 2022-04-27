@@ -13,6 +13,7 @@
   --color-secondary-200: 170 176 187;
   --color-secondary-100: 209 213 218;
   --color-secondary-0: 255 255 255;
+  --color-error: 244 67 53;
 }
 
 body {

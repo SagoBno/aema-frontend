@@ -2,14 +2,17 @@ import React from "react";
 
 import routes from "config/routes";
 import useUser from "hooks/useUser";
+import BeckCard from "components/BeckCard";
 import LoggedLayout from "components/@layouts/LoggedLayout";
 
-const HomePage = () => {
+const BeckPage = () => {
   useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
 
   return (
-    <LoggedLayout>Dashboard will be here. go to /beck to see form</LoggedLayout>
+    <LoggedLayout>
+      <BeckCard />
+    </LoggedLayout>
   );
 };
 
-export default HomePage;
+export default BeckPage;
