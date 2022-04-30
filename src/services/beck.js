@@ -1,7 +1,7 @@
 import axios from "axios";
 import { StatusCodes } from "http-status-codes";
 
-const BASE_URL = "http://localhost:3001/beck";
+const BASE_URL = "http://localhost:3001/user-answers";
 
 const client = axios.create({
   baseURL: BASE_URL,
