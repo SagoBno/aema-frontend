@@ -1,4 +1,3 @@
-import cn from "classnames";
 import Answer from "./Answer";
 
 const PossibleAnswers = ({
@@ -10,6 +9,7 @@ const PossibleAnswers = ({
     const { onChange, ref } = registeredQuestions[question];
     return (
       <Answer
+        key={id}
         ref={ref}
         id={id}
         name={name}

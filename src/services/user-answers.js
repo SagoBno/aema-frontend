@@ -8,7 +8,7 @@ const client = axios.create({
   withCredentials: true,
 });
 
-export const create = async ({ questions }) => {
+export const create = async ({ answers }) => {
   const errorMessages = {
     [StatusCodes.BAD_REQUEST]: "Tienes alguna respuesta sin resolver.",
     default: "Error al enviar formulario, intentalo más tarde.",
@@ -16,8 +16,23 @@ export const create = async ({ questions }) => {
 
   try {
     const { data } = await client.post("/", {
-      questions,
+      answers,
     });
+    return data;
+  } catch (error) {
+    throw new Error(
+      errorMessages[error?.response?.status] ?? errorMessages.default
+    );
+  }
+};
+
+export const getByUserId = async () => {
+  const errorMessages = {
+    default: "Error obtener las respuestas, intentalo más tarde.",
+  };
+
+  try {
+    const { data } = await client.get("/me");
     return data;
   } catch (error) {
     throw new Error(

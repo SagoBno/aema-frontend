@@ -22,27 +22,29 @@ const BeckForm = ({
   return (
     <form
       onSubmit={onSubmit}
-      className={cn(
-        "bg-general-bg min-h-[86vh] max-w-[90vw] shadow-lg rounded-lg pt-10 pb-5 px-8 flex flex-col justify-between",
-        {
-          "border-2 border-error/50": hasError,
-        }
-      )}
+      className="h-full grid grid-rows-questionsWithControls gap-5"
     >
       <div>
-        <h2 className="text-2xl text-center font-bold">{question?.name}</h2>
-        <p className="text-center text-secondary-300 mt-3">
+        <h2 className="text-xl md:text-2xl font-bold">{question?.name}</h2>
+        <p className="text-sm md:text-base text-secondary-300 mt-2 md:mt-3">
           Selecciona una de las opciones con base a como te sientas.
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-4 mx-auto py-10">
+      <ul
+        className={cn(
+          "self-center grid grid-cols-questions gap-4 rounded-lg overflow-y-auto p-2",
+          {
+            "border-2 border-error/50": hasError,
+          }
+        )}
+      >
         <PossibleAnswers
           selectedAnswer={selectedAnswer}
           possibleAnswers={possibleAnswers}
           registeredQuestions={registeredQuestions}
         />
-      </div>
-      <div className="flex justify-between h-[52px]">
+      </ul>
+      <div className="flex justify-between">
         {hasPrevious && <BackButton href={previousPage} />}
         {hasNext && <NextButton href={nextPage} disabled={!selectedAnswer} />}
         {!hasNext && <FinishButton disabled={!selectedAnswer} />}

@@ -3,16 +3,14 @@ import React from "react";
 import routes from "config/routes";
 import useUser from "hooks/useUser";
 import BeckCard from "components/BeckCard";
-import LoggedLayout from "components/@layouts/LoggedLayout";
+import LayoutWithNavbar from "components/@layouts/LayoutWithNavbar";
 
 const BeckPage = () => {
   useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
 
-  return (
-    <LoggedLayout>
-      <BeckCard />
-    </LoggedLayout>
-  );
+  return <BeckCard />;
 };
+
+BeckPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
 
 export default BeckPage;

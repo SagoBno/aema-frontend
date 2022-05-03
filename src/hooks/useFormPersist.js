@@ -14,6 +14,7 @@ const useFormPersist = (
 ) => {
   const values = watch(include);
   const getStorage = () => storage || window.sessionStorage;
+  const clear = () => getStorage().removeItem(name);
 
   useEffect(() => {
     const str = getStorage().getItem(name);
@@ -42,8 +43,12 @@ const useFormPersist = (
     getStorage().setItem(name, JSON.stringify(values));
   });
 
+  useEffect(() => {
+    return clear;
+  }, []);
+
   return {
-    clear: () => getStorage().removeItem(name),
+    clear,
   };
 };
 

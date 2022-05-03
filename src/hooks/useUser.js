@@ -2,7 +2,7 @@ import useSWR from "swr";
 import Router from "next/router";
 import { useEffect } from "react";
 
-import { getLoginStatus, logout as logoutService } from "../services/auth";
+import { getLoginStatus, logout as logoutService } from "services/auth";
 
 const LOGIN_KEY = "/auth/login";
 
@@ -20,11 +20,7 @@ const useUser = ({ ifLoggedRedirectTo, ifNotLoggedRedirectTo } = {}) => {
     }
   }, [error]);
 
-  const logout = () =>
-    logoutService().then(() => {
-      sessionStorage.clear();
-      mutate();
-    });
+  const logout = () => logoutService().then(() => mutate());
 
   return {
     user,

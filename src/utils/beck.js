@@ -2,6 +2,19 @@ import beck from "aema-cross/index";
 
 const { questions, answers } = beck;
 
+export const answersById = answers.enums.reduce((accumulator, { value }) => {
+  accumulator[value.id] = value;
+  return accumulator;
+}, {});
+
+export const questionsById = questions.enums.reduce(
+  (accumulator, { value }) => {
+    accumulator[value.id] = value;
+    return accumulator;
+  },
+  {}
+);
+
 export const answersByQuestionId = answers.enums.reduce(
   (accumulator, { value }) => {
     if (!accumulator[value.question]) {

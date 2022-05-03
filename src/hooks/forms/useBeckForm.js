@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 import routes from "config/routes";
-import { create } from "services/beck";
+import { create } from "services/user-answers";
 import useFormPersist from "hooks/useFormPersist.js";
 import { questionsWithAnswersById, questions } from "utils/beck";
 
@@ -44,7 +44,7 @@ const useBeckForm = () => {
   }, [formState]);
 
   const onSubmit = (answerByQuestion) =>
-    create({ questions: Object.values(answerByQuestion) })
+    create({ answers: Object.values(answerByQuestion) })
       .then(showBeckCreatedSuccessfullyNotification)
       .catch(showNotCreatedBeckError);
 
@@ -86,7 +86,7 @@ function showUnFilledQuestionError(question) {
 
 function showBeckCreatedSuccessfullyNotification() {
   return toast.success((t) => (
-    <Link href={routes.BECK}>
+    <Link href={routes.HOME}>
       <a className="underline" onClick={() => toast.dismiss(t.id)}>
         Ver resultados.
       </a>

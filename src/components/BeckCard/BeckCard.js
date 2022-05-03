@@ -17,7 +17,7 @@ const BeckCard = () => {
   ] = useBeckForm();
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="pt-10 pb-5 px-8">
       <BeckForm
         hasNext={hasNext}
         nextPage={nextPage}
