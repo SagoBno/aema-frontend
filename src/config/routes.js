@@ -1,10 +1,9 @@
 const routes = {
-  HOME: "/",
-  BECK: "/beck",
+  FORM: "/formulario",
   LOGIN: "/iniciar-sesion",
   SIGNUP: "/registrarse",
   FORGOT_PASSWORD: "/recuperar",
-  RECORDS: "/historial",
+  HOME: "/",
 };
 
 export default routes;

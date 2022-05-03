@@ -1,15 +1,23 @@
 import React from "react";
 
-import routes from "config/routes";
 import useUser from "hooks/useUser";
+import useUserAnswers from "hooks/useUserAnswers";
+
+import routes from "config/routes";
+
 import LayoutWithNavbar from "components/@layouts/LayoutWithNavbar";
 
-const HomePage = () => {
-  useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
+import History from "components/History";
 
-  return "Hola";
+const HistoryPage = () => {
+  useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
+  const {
+    data: { userAnswers },
+  } = useUserAnswers();
+
+  return <History userAnswers={userAnswers} />;
 };
 
-HomePage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
+HistoryPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
 
-export default HomePage;
+export default HistoryPage;

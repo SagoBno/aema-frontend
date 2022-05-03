@@ -55,8 +55,8 @@ const useBeckForm = () => {
       currentPage: page,
       hasPrevious: !isFirstPage,
       hasNext: !isLastPage,
-      previousPage: isFirstPage ? "" : `${routes.BECK}?page=${page - 1}`,
-      nextPage: isLastPage ? "" : `${routes.BECK}?page=${page + 1}`,
+      previousPage: isFirstPage ? "" : `${routes.FORM}?page=${page - 1}`,
+      nextPage: isLastPage ? "" : `${routes.FORM}?page=${page + 1}`,
       registeredQuestions: questions?.enums?.reduce(
         (accumulator, { value: { id } }) => {
           accumulator[id] = register(`${id}`, {
@@ -76,7 +76,7 @@ const useBeckForm = () => {
 
 function showUnFilledQuestionError(question) {
   return toast.error((t) => (
-    <Link href={`${routes.BECK}?page=${question}`}>
+    <Link href={`${routes.FORM}?page=${question}`}>
       <a className="underline" onClick={() => toast.dismiss(t.id)}>
         Debes responder la pregunta #{question}, da click para verla.
       </a>

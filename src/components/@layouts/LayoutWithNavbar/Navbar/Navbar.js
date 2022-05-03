@@ -4,23 +4,17 @@ import { useRouter } from "next/router";
 
 import routes from "config/routes";
 
-import Dashboard from "icons/Dashboard";
 import StartBeck from "icons/StartBeck";
 import RecordBook from "icons/RecordBook";
 
 const nav = [
   {
     route: routes.HOME,
-    title: "Dashboard",
-    icon: <Dashboard />,
-  },
-  {
-    route: routes.RECORDS,
     title: "Historial",
     icon: <RecordBook />,
   },
   {
-    route: routes.BECK,
+    route: routes.FORM,
     title: "Formulario",
     icon: <StartBeck />,
   },
