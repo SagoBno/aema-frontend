@@ -1,1 +1,1 @@
-export { default } from "./PossibleAnswers";
+export { default } from './PossibleAnswers';

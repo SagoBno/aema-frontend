@@ -1,7 +1,8 @@
-import BeckForm from "components/@forms/BeckForm";
-import useBeckForm from "hooks/forms/useBeckForm";
+import React from 'react';
+import BeckForm from '../@forms/BeckForm';
+import useBeckForm from '../../hooks/forms/useBeckForm';
 
-const BeckCard = () => {
+function BeckCard() {
   const [
     {
       errors,
@@ -32,6 +33,6 @@ const BeckCard = () => {
       />
     </div>
   );
-};
+}
 
 export default BeckCard;

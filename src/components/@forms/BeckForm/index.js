@@ -1,1 +1,1 @@
-export { default } from "./BeckForm";
+export { default } from './BeckForm';

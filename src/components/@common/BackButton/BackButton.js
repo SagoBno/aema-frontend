@@ -1,9 +1,12 @@
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
-const BackButton = ({ href }) => (
-  <Link href={href}>
-    <a className="c_previous-step-button">Volver</a>
-  </Link>
-);
+function BackButton({ href }) {
+  return (
+    <Link href={href}>
+      <a className="c_previous-step-button">Volver</a>
+    </Link>
+  );
+}
 
 export default BackButton;

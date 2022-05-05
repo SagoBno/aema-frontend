@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const useFormPersist = (
   name,
@@ -10,7 +10,7 @@ const useFormPersist = (
     onDataRestored,
     validate = false,
     dirty = false,
-  } = {}
+  } = {},
 ) => {
   const values = watch(include);
   const getStorage = () => storage || window.sessionStorage;
@@ -19,14 +19,14 @@ const useFormPersist = (
   useEffect(() => {
     const str = getStorage().getItem(name);
     if (str) {
-      const values = JSON.parse(str);
+      const valuesArray = JSON.parse(str);
       const dataRestored = {};
 
-      Object.keys(values).forEach((key) => {
+      Object.keys(valuesArray).forEach((key) => {
         const shouldSet = !exclude.includes(key);
         if (shouldSet) {
-          dataRestored[key] = values[key];
-          setValue(key, values[key], {
+          dataRestored[key] = valuesArray[key];
+          setValue(key, valuesArray[key], {
             shouldValidate: validate,
             shouldDirty: dirty,
           });
@@ -43,9 +43,7 @@ const useFormPersist = (
     getStorage().setItem(name, JSON.stringify(values));
   });
 
-  useEffect(() => {
-    return clear;
-  }, []);
+  useEffect(() => clear, []);
 
   return {
     clear,

@@ -1,1 +1,1 @@
-export { default } from "./FinishButton";
+export { default } from './FinishButton';

@@ -1,16 +1,18 @@
 import React from 'react';
 import HappyLogin from '../icons/HappyLogin';
-import useLoginForm from '../hooks/forms/useLoginForm';
+import useRegisterForm from '../hooks/forms/useRegisterForm';
 import useUser from '../hooks/useUser';
 import routes from '../config/routes';
 import AuthCard from '../components/AuthCard';
-import LoginForm from '../components/@forms/LoginForm';
+import RegisterForm from '../components/@forms/RegisterForm';
 
-function LoginPage() {
+function RegisterPage() {
   useUser({ ifLoggedRedirectTo: routes.HOME });
   const [{
-    errors, isSubmitting, emailInput, passwordInput,
-  }, { onSubmit }] = useLoginForm();
+    errors, isSubmitting, firstNameInput,
+    lastNameInput, emailInput, genreInput, birthdayInput, passwordInput,
+    privacyPoliciesInput,
+  }, { onSubmit }] = useRegisterForm();
 
   return (
     <main className="flex items-center justify-center h-full">
@@ -18,13 +20,18 @@ function LoginPage() {
         <section className="w-full flex items-center justify-center bg-general-bg rounded-lg md:rounded-tl-lg md:rounded-bl-lg">
           <div className="w-fit">
             <AuthCard
-              title="Iniciar sesión ✌️"
+              title="Registrate"
               content={(
-                <LoginForm
+                <RegisterForm
                   errors={errors}
                   isSubmitting={isSubmitting}
+                  firstNameInput={firstNameInput}
+                  lastNameInput={lastNameInput}
                   emailInput={emailInput}
+                  genreInput={genreInput}
+                  birthdayInput={birthdayInput}
                   passwordInput={passwordInput}
+                  privacyPoliciesInput={privacyPoliciesInput}
                   onSubmit={onSubmit}
                 />
               )}
@@ -39,4 +46,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,15 +1,16 @@
-import cn from "classnames";
-import { LoaderIcon } from "react-hot-toast";
+import React from 'react';
+import cn from 'classnames';
+import { LoaderIcon } from 'react-hot-toast';
 
-import TextField from "../../@common/TextField";
+import TextField from '../../@common/TextField';
 
-const LoginForm = ({
+function LoginForm({
   onSubmit,
   emailInput,
   passwordInput,
   errors,
   isSubmitting,
-}) => {
+}) {
   return (
     <form onSubmit={onSubmit}>
       <TextField
@@ -29,17 +30,17 @@ const LoginForm = ({
 
       <div className="text-center mt-6">
         <button
-          className={cn("c_primary-button", {
-            "c_primary-button--submitting": isSubmitting,
+          className={cn('c_primary-button', {
+            'c_primary-button--submitting': isSubmitting,
           })}
           type="submit"
-          style={{ transition: "all .15s ease" }}
+          style={{ transition: 'all .15s ease' }}
         >
-          {isSubmitting ? <LoaderIcon className="mx-auto" /> : "Login"}
+          {isSubmitting ? <LoaderIcon className="mx-auto" /> : 'Login'}
         </button>
       </div>
     </form>
   );
-};
+}
 
 export default LoginForm;

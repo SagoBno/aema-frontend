@@ -1,6 +1,7 @@
-import { Toaster } from "react-hot-toast";
-import "styles/globals.css";
-import "styles/components.css";
+import React from 'react';
+import { Toaster } from 'react-hot-toast';
+import '../styles/globals.css';
+import '../styles/components.css';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -8,8 +9,8 @@ function MyApp({ Component, pageProps }) {
   return getLayout(
     <>
       <Component {...pageProps} />
-      <Toaster position="top-center" reverseOrder={true} />
-    </>
+      <Toaster position="top-center" reverseOrder />
+    </>,
   );
 }
 

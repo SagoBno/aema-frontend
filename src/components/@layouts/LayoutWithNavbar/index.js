@@ -1,1 +1,1 @@
-export { default } from "./LayoutWithNavbar";
+export { default } from './LayoutWithNavbar';

@@ -1,22 +1,22 @@
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+import { useSWRConfig } from 'swr';
 
-import { login } from "services/auth";
-import { useSWRConfig } from "swr";
+import { login } from '../../services/auth';
 
 const fields = {
   EMAIL: {
-    name: "email",
+    name: 'email',
     validations: {
-      required: "Este campo es requerido.",
+      required: 'Este campo es requerido.',
     },
   },
   PASSWORD: {
-    name: "password",
+    name: 'password',
     validations: {
-      required: "Este campo es requerido.",
+      required: 'Este campo es requerido.',
     },
   },
 };
@@ -35,8 +35,8 @@ const useLoginForm = () => {
     setIsSubmitting(true);
     login(data)
       .then(() => {
-        mutate("/auth/login");
-        push(query?.prev ?? "/");
+        mutate('/auth/login');
+        push(query?.prev ?? '/');
       })
       .catch((e) => toast.error(e.message))
       .finally(() => setIsSubmitting(false));
@@ -49,7 +49,7 @@ const useLoginForm = () => {
       emailInput: register(fields.EMAIL.name, fields.EMAIL.validations),
       passwordInput: register(
         fields.PASSWORD.name,
-        fields.PASSWORD.validations
+        fields.PASSWORD.validations,
       ),
     },
     {

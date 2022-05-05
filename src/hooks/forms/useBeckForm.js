@@ -1,13 +1,16 @@
-import Link from "next/link";
-import toast from "react-hot-toast";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import Link from 'next/link';
+import toast from 'react-hot-toast';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 
-import routes from "config/routes";
-import { create } from "services/user-answers";
-import useFormPersist from "hooks/useFormPersist.js";
-import { questionsWithAnswersById, questions } from "utils/beck";
+import routes from '../../config/routes';
+import { create } from '../../services/user-answers';
+// eslint-disable-next-line import/extensions
+import useFormPersist from '../useFormPersist.js';
+import { questionsWithAnswersById, questions } from '../../utils/beck';
 
 const useBeckForm = () => {
   const {
@@ -15,12 +18,40 @@ const useBeckForm = () => {
   } = useRouter();
   const page = Number(urlPage) || 1;
   const [questionWithAnswers, setQuestionWithAnswers] = useState();
-  const { register, handleSubmit, formState, watch, setValue } = useForm();
+  const {
+    register, handleSubmit, formState, watch, setValue,
+  } = useForm();
 
   const isFirstPage = page === 1;
   const isLastPage = page === questions.enums.length;
 
-  useFormPersist("beck-form", { watch, setValue });
+  function showUnFilledQuestionError(question) {
+    return toast.error((t) => (
+      <Link href={`${routes.FORM}?page=${question}`}>
+        <a className="underline" onClick={() => toast.dismiss(t.id)}>
+          Debes responder la pregunta #
+          {question}
+          , da click para verla.
+        </a>
+      </Link>
+    ));
+  }
+
+  function showBeckCreatedSuccessfullyNotification() {
+    return toast.success((t) => (
+      <Link href={routes.HOME}>
+        <a className="underline" onClick={() => toast.dismiss(t.id)}>
+          Ver resultados.
+        </a>
+      </Link>
+    ));
+  }
+
+  function showNotCreatedBeckError({ message }) {
+    return toast.error(message);
+  }
+
+  useFormPersist('beck-form', { watch, setValue });
 
   useEffect(() => {
     const newQuestionWithAnswer = questionsWithAnswersById[page];
@@ -43,10 +74,9 @@ const useBeckForm = () => {
     };
   }, [formState]);
 
-  const onSubmit = (answerByQuestion) =>
-    create({ answers: Object.values(answerByQuestion) })
-      .then(showBeckCreatedSuccessfullyNotification)
-      .catch(showNotCreatedBeckError);
+  const onSubmit = (answerByQuestion) => create({ answers: Object.values(answerByQuestion) })
+    .then(showBeckCreatedSuccessfullyNotification)
+    .catch(showNotCreatedBeckError);
 
   return [
     {
@@ -55,8 +85,8 @@ const useBeckForm = () => {
       currentPage: page,
       hasPrevious: !isFirstPage,
       hasNext: !isLastPage,
-      previousPage: isFirstPage ? "" : `${routes.FORM}?page=${page - 1}`,
-      nextPage: isLastPage ? "" : `${routes.FORM}?page=${page + 1}`,
+      previousPage: isFirstPage ? '' : `${routes.FORM}?page=${page - 1}`,
+      nextPage: isLastPage ? '' : `${routes.FORM}?page=${page + 1}`,
       registeredQuestions: questions?.enums?.reduce(
         (accumulator, { value: { id } }) => {
           accumulator[id] = register(`${id}`, {
@@ -64,7 +94,7 @@ const useBeckForm = () => {
           });
           return accumulator;
         },
-        {}
+        {},
       ),
     },
     {
@@ -73,29 +103,5 @@ const useBeckForm = () => {
     },
   ];
 };
-
-function showUnFilledQuestionError(question) {
-  return toast.error((t) => (
-    <Link href={`${routes.FORM}?page=${question}`}>
-      <a className="underline" onClick={() => toast.dismiss(t.id)}>
-        Debes responder la pregunta #{question}, da click para verla.
-      </a>
-    </Link>
-  ));
-}
-
-function showBeckCreatedSuccessfullyNotification() {
-  return toast.success((t) => (
-    <Link href={routes.HOME}>
-      <a className="underline" onClick={() => toast.dismiss(t.id)}>
-        Ver resultados.
-      </a>
-    </Link>
-  ));
-}
-
-function showNotCreatedBeckError({ message }) {
-  return toast.error(message);
-}
 
 export default useBeckForm;

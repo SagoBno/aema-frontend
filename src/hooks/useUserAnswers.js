@@ -1,8 +1,8 @@
-import useSWR from "swr";
+import useSWR from 'swr';
 
-import { getByUserId } from "services/user-answers";
+import { getByUserId } from '../services/user-answers';
 
-const LOGIN_KEY = "/user-answers/me";
+const LOGIN_KEY = '/user-answers/me';
 
 const useUserAnswers = () => {
   const { data, error } = useSWR(LOGIN_KEY, getByUserId);

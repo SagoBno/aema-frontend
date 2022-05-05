@@ -1,1 +1,1 @@
-export { default } from "./DownloadHistory";
+export { default } from './DownloadHistory';

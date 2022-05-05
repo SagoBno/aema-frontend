@@ -1,4 +1,4 @@
-import beck from "aema-cross/index";
+import beck from 'aema-cross/index';
 
 const { questions, answers } = beck;
 
@@ -12,7 +12,7 @@ export const questionsById = questions.enums.reduce(
     accumulator[value.id] = value;
     return accumulator;
   },
-  {}
+  {},
 );
 
 export const answersByQuestionId = answers.enums.reduce(
@@ -24,12 +24,12 @@ export const answersByQuestionId = answers.enums.reduce(
 
     if ([5, 7].includes(accumulator[value.question].length)) {
       accumulator[value.question] = accumulator[value.question]?.sort(
-        (a, b) => a.order - b.order
+        (a, b) => a.order - b.order,
       );
     }
     return accumulator;
   },
-  {}
+  {},
 );
 
 export const questionsWithAnswersById = questions.enums.reduce(
@@ -41,7 +41,7 @@ export const questionsWithAnswersById = questions.enums.reduce(
 
     return accumulator;
   },
-  {}
+  {},
 );
 
 export { questions, answers };

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import useHistory from "./useHistory";
-import RecordList from "./RecordList";
-import UserAnswersList from "./UserAnswersList";
-import DownloadHistory from "./DownloadHistory";
+import useHistory from './useHistory';
+import RecordList from './RecordList';
+import UserAnswersList from './UserAnswersList';
+import DownloadHistory from './DownloadHistory';
 
-const History = ({ userAnswers }) => {
+function History({ userAnswers }) {
   const [
     { history, selectedRecord },
     { onSelectRecord, onDownloadUserAnswers, onDownloadHistory },
@@ -36,6 +36,6 @@ const History = ({ userAnswers }) => {
       )}
     </main>
   );
-};
+}
 
 export default History;

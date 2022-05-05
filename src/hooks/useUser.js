@@ -1,10 +1,10 @@
-import useSWR from "swr";
-import Router from "next/router";
-import { useEffect } from "react";
+import useSWR from 'swr';
+import Router from 'next/router';
+import { useEffect } from 'react';
 
-import { getLoginStatus, logout as logoutService } from "services/auth";
+import { getLoginStatus, logout as logoutService } from '../services/auth';
 
-const LOGIN_KEY = "/auth/login";
+const LOGIN_KEY = '/auth/login';
 
 const useUser = ({ ifLoggedRedirectTo, ifNotLoggedRedirectTo } = {}) => {
   const { data: user, error, mutate } = useSWR(LOGIN_KEY, getLoginStatus);

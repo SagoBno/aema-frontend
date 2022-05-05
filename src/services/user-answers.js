@@ -1,5 +1,5 @@
-import axios from "axios";
-import { StatusCodes } from "http-status-codes";
+import axios from 'axios';
+import { StatusCodes } from 'http-status-codes';
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/user-answers`;
 
@@ -10,33 +10,33 @@ const client = axios.create({
 
 export const create = async ({ answers }) => {
   const errorMessages = {
-    [StatusCodes.BAD_REQUEST]: "Tienes alguna respuesta sin resolver.",
-    default: "Error al enviar formulario, intentalo más tarde.",
+    [StatusCodes.BAD_REQUEST]: 'Tienes alguna respuesta sin resolver.',
+    default: 'Error al enviar formulario, intentalo más tarde.',
   };
 
   try {
-    const { data } = await client.post("/", {
+    const { data } = await client.post('/', {
       answers,
     });
     return data;
   } catch (error) {
     throw new Error(
-      errorMessages[error?.response?.status] ?? errorMessages.default
+      errorMessages[error?.response?.status] ?? errorMessages.default,
     );
   }
 };
 
 export const getByUserId = async () => {
   const errorMessages = {
-    default: "Error obtener las respuestas, intentalo más tarde.",
+    default: 'Error obtener las respuestas, intentalo más tarde.',
   };
 
   try {
-    const { data } = await client.get("/me");
+    const { data } = await client.get('/me');
     return data;
   } catch (error) {
     throw new Error(
-      errorMessages[error?.response?.status] ?? errorMessages.default
+      errorMessages[error?.response?.status] ?? errorMessages.default,
     );
   }
 };

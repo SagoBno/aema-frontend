@@ -1,1 +1,1 @@
-export { default } from "./BeckCard";
+export { default } from './BeckCard';
