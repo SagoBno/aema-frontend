@@ -1,9 +1,10 @@
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
-import routes from "config/routes";
-import useUser from "hooks/useUser";
+import routes from '../../../../config/routes';
+import useUser from '../../../../hooks/useUser';
 
-const Header = () => {
+function Header() {
   const { logout } = useUser();
   return (
     <nav className="py-4">
@@ -16,6 +17,7 @@ const Header = () => {
         <ul>
           <li>
             <button
+              type="button"
               onClick={logout}
               className="text-secondary-0 font-bold hover:underline"
             >
@@ -26,6 +28,6 @@ const Header = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Header;

@@ -18,10 +18,19 @@
         "react"
     ],
     "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "react/prop-types": "off",
-      "react/jsx-props-no-spreading": "off",
-      "jsx-a11y/anchor-is-valid": "off",
-      "jsx-a11y/label-has-associated-control": "off"
+        "no-restricted-exports": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react/prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }

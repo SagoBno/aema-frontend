@@ -1,7 +1,8 @@
-import MainLayout from "components/@layouts/MainLayout";
-import Navbar from "./Navbar";
+import React from 'react';
+import MainLayout from '../MainLayout';
+import Navbar from './Navbar';
 
-const LayoutWithNavbar = ({ children }) => {
+function LayoutWithNavbar({ children }) {
   return (
     <MainLayout>
       <div className=" bg-general-bg grid grid-cols-mainLayout relative">
@@ -10,6 +11,6 @@ const LayoutWithNavbar = ({ children }) => {
       </div>
     </MainLayout>
   );
-};
+}
 
 export default LayoutWithNavbar;

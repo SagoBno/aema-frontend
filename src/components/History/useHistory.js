@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { formatDate } from 'utils/dates';
-import { getCsvExporter } from 'utils/csv';
-import { answersById, questionsById } from 'utils/beck';
+import { formatDate } from '../../utils/dates';
+import { getCsvExporter } from '../../utils/csv';
+import { answersById, questionsById } from '../../utils/beck';
 
 const csvHeaders = ['Id', 'Fecha', 'Pregunta', 'Respuesta'];
 

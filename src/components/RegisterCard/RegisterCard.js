@@ -1,13 +1,14 @@
-import Link from "next/link";
-import LoginForm from "../@forms/LoginForm";
+import React from 'react';
+import Link from 'next/link';
+import LoginForm from '../@forms/LoginForm';
 
-const LoginCard = ({
+function LoginCard({
   onSubmit,
   isSubmitting,
   emailInput,
   passwordInput,
   errors,
-}) => {
+}) {
   return (
     <div className="w-full px-4 lg:px-10 py-10">
       <p className="text-secondary-400 mb-3 font-bold text-2xl">
@@ -32,6 +33,6 @@ const LoginCard = ({
       </div>
     </div>
   );
-};
+}
 
 export default LoginCard;

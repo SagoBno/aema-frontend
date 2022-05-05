@@ -1,13 +1,12 @@
-import React from "react";
-import cn from "classnames";
-import Link from "next/link";
+import React from 'react';
+import cn from 'classnames';
 
-import NextButton from "components/@common/NextButton";
-import FinishButton from "components/@common/FinishButton";
-import BackButton from "components/@common/BackButton";
-import PossibleAnswers from "./PossibleAnswers";
+import NextButton from '../../@common/NextButton';
+import FinishButton from '../../@common/FinishButton';
+import BackButton from '../../@common/BackButton';
+import PossibleAnswers from './PossibleAnswers';
 
-const BeckForm = ({
+function BeckForm({
   onSubmit,
   question,
   possibleAnswers,
@@ -18,7 +17,7 @@ const BeckForm = ({
   nextPage,
   hasPrevious,
   hasNext,
-}) => {
+}) {
   return (
     <form
       onSubmit={onSubmit}
@@ -32,10 +31,10 @@ const BeckForm = ({
       </div>
       <ul
         className={cn(
-          "self-center grid grid-cols-questions gap-4 rounded-lg overflow-y-auto p-2",
+          'self-center grid grid-cols-questions gap-4 rounded-lg overflow-y-auto p-2',
           {
-            "border-2 border-error/50": hasError,
-          }
+            'border-2 border-error/50': hasError,
+          },
         )}
       >
         <PossibleAnswers
@@ -51,6 +50,6 @@ const BeckForm = ({
       </div>
     </form>
   );
-};
+}
 
 export default BeckForm;
