@@ -6,6 +6,8 @@ import { answersById, questionsById } from '../../utils/beck';
 
 const csvHeaders = ['Id', 'Fecha', 'Pregunta', 'Respuesta'];
 
+const DEFAULT_HISTORY = {};
+
 const useHistory = ({ userAnswers }) => {
   const [selectedRecord, setSelectedRecord] = useState();
 
@@ -30,7 +32,7 @@ const useHistory = ({ userAnswers }) => {
     });
 
     return accumulator;
-  }, {}) || {};
+  }, {}) ?? DEFAULT_HISTORY;
 
   const onDownloadUserAnswers = () => getCsvExporter({
     filename: selectedRecord,
@@ -45,7 +47,7 @@ const useHistory = ({ userAnswers }) => {
   }).generateCsv(Object.values(history).flat());
 
   return [
-    { history, selectedRecord },
+    { history, records: Object.keys(history), selectedRecord },
     { onSelectRecord, onDownloadUserAnswers, onDownloadHistory },
   ];
 };

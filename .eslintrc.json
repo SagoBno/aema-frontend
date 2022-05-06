@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:@next/next/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,19 +19,36 @@
         "react"
     ],
     "rules": {
-        "no-restricted-exports": "off",
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ],
-        "react/prop-types": "off",
-        "react/jsx-props-no-spreading": "off",
-        "jsx-a11y/anchor-is-valid": "off",
-        "jsx-a11y/label-has-associated-control": "off"
+      "react/jsx-filename-extension": [
+        1,
+        {
+            "extensions": [
+                ".js",
+                ".jsx"
+            ]
+        }
+    ],
+      "react/react-in-jsx-scope": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-restricted-exports": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "jsx-a11y/label-has-associated-control": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["components", "./src/components"],
+            ["config", "./src/config"],
+            ["hooks", "./src/hooks"],
+            ["icons", "./src/icons"],
+            ["pages", "./src/pages"],
+            ["services", "./src/services"],
+            ["styles", "./src/styles"],
+            ["utils", "./src/utils"]
+          ]
+        }
+      }
     }
 }
