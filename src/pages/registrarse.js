@@ -1,5 +1,5 @@
 import React from 'react';
-import HappyLogin from '../icons/HappyLogin';
+import HappyLogin from '../illustrations/HappyLogin';
 import useRegisterForm from '../hooks/forms/useRegisterForm';
 import useUser from '../hooks/useUser';
 import routes from '../config/routes';
@@ -20,7 +20,7 @@ function RegisterPage() {
         <section className="w-full flex items-center justify-center bg-general-bg rounded-lg md:rounded-tl-lg md:rounded-bl-lg">
           <div className="w-fit">
             <AuthCard
-              title="Registrate"
+              title="Regístrate"
               content={(
                 <RegisterForm
                   errors={errors}

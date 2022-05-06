@@ -1,15 +1,15 @@
 import useSWR from 'swr';
 
-import { getByUserId } from '../services/user-answers';
+import { getUserAnswers } from '../services/user-answers';
 
 const LOGIN_KEY = '/user-answers/me';
 
 const DEFAULT_DATA = {
-  userAnswers: []
-}
+  userAnswers: [],
+};
 
 const useUserAnswers = () => {
-  const { data, error } = useSWR(LOGIN_KEY, getByUserId);
+  const { data, error } = useSWR(LOGIN_KEY, getUserAnswers);
 
   const isLoading = !error && !data;
 

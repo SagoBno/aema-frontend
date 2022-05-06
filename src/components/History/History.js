@@ -21,6 +21,7 @@ function History({ userAnswers, isLoading }) {
           isLoading={isLoading}
           selectedRecord={selectedRecord}
           onSelectRecord={onSelectRecord}
+          onDownloadHistory={onDownloadHistory}
         />
       </section>
       {selectedRecord && (

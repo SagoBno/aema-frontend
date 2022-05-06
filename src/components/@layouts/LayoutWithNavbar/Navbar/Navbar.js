@@ -3,9 +3,9 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import routes from '../../../../config/routes';
-import StartBeck from '../../../../icons/StartBeck';
-import RecordBook from '../../../../icons/RecordBook';
+import routes from 'config/routes';
+import StartBeck from 'icons/StartBeck';
+import RecordBook from 'icons/RecordBook';
 
 const nav = [
   {
@@ -14,7 +14,7 @@ const nav = [
     icon: <RecordBook />,
   },
   {
-    route: routes.FORM,
+    route: routes.INVENTORY,
     title: 'Formulario',
     icon: <StartBeck />,
   },

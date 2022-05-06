@@ -28,7 +28,10 @@ const useHistory = ({ userAnswers }) => {
       id: current.id,
       date,
       question: question.name,
+      questionId: question.id,
       answer: answer.name,
+      answerId: answer.id,
+      createdAt: current.createdAt,
     });
 
     return accumulator;

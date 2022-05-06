@@ -73,12 +73,12 @@ function RegisterForm({
               type="button"
               className="underline text-primary-500 visited:text-primary-300"
             >
-              politicas de privacidad
+              políticas de privacidad.
             </button>
           </div>
           )}
         type="checkbox"
-        placeholder="Politicas de privacidad"
+        placeholder="Políticas de privacidad."
         error={errors.privacyPolicies}
         inputProps={privacyPoliciesInput}
       />
@@ -91,7 +91,7 @@ function RegisterForm({
           type="submit"
           style={{ transition: 'all .15s ease' }}
         >
-          {isSubmitting ? <LoaderIcon className="mx-auto" /> : 'Register'}
+          {isSubmitting ? <LoaderIcon className="mx-auto" /> : 'Regístrate'}
         </button>
       </div>
     </form>

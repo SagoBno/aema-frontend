@@ -1,5 +1,5 @@
 import React from 'react';
-import HappyLogin from '../icons/HappyLogin';
+import HappyLogin from '../illustrations/HappyLogin';
 import useLoginForm from '../hooks/forms/useLoginForm';
 import useUser from '../hooks/useUser';
 import routes from '../config/routes';
@@ -28,6 +28,7 @@ function LoginPage() {
                   onSubmit={onSubmit}
                 />
               )}
+              isLogin
             />
           </div>
         </section>

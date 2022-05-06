@@ -1,5 +1,6 @@
 const routes = {
-  FORM: '/formulario',
+  TIP: '/tip',
+  INVENTORY: '/inventario',
   LOGIN: '/iniciar-sesion',
   SIGNUP: '/registrarse',
   FORGOT_PASSWORD: '/recuperar',

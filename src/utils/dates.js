@@ -1,8 +1,18 @@
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 import 'dayjs/locale/es';
 
 dayjs.locale('es');
 
-// eslint-disable-next-line import/prefer-default-export
-export const formatDate = (date) => dayjs(date).format('ddd, MMM D, YYYY h:mm A');
+dayjs.extend(utc);
+dayjs.extend(relativeTime);
+
+export const formatDate = (date, format = 'ddd, MMM D, YYYY h:mm A') => dayjs(date).format(format);
+
+export const getDiffInWeeks = (dateA, dateB) => dayjs.utc(dateA).diff(dayjs.utc(dateB), 'week');
+
+export const addWeeks = (date, weeksToAdd) => dayjs(date).add(weeksToAdd, 'week');
+
+export const timeToNow = (futureDate) => dayjs(futureDate).fromNow();

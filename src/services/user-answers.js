@@ -11,7 +11,7 @@ const client = axios.create({
 export const create = async ({ answers }) => {
   const errorMessages = {
     [StatusCodes.BAD_REQUEST]: 'Tienes alguna respuesta sin resolver.',
-    default: 'Error al enviar formulario, intentalo más tarde.',
+    default: 'Error al enviar inventario, intentalo más tarde.',
   };
 
   try {
@@ -26,7 +26,7 @@ export const create = async ({ answers }) => {
   }
 };
 
-export const getByUserId = async () => {
+export const getUserAnswers = async () => {
   const errorMessages = {
     default: 'Error obtener las respuestas, intentalo más tarde.',
   };

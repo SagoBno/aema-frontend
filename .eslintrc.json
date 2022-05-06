@@ -43,6 +43,7 @@
             ["config", "./src/config"],
             ["hooks", "./src/hooks"],
             ["icons", "./src/icons"],
+            ["illustrations", "./src/illustrations"],
             ["pages", "./src/pages"],
             ["services", "./src/services"],
             ["styles", "./src/styles"],

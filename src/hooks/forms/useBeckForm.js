@@ -15,6 +15,7 @@ import { questionsWithAnswersById, questions } from '../../utils/beck';
 const useBeckForm = () => {
   const {
     query: { page: urlPage },
+    push,
   } = useRouter();
   const page = Number(urlPage) || 1;
   const [questionWithAnswers, setQuestionWithAnswers] = useState();
@@ -27,7 +28,7 @@ const useBeckForm = () => {
 
   function showUnFilledQuestionError(question) {
     return toast.error((t) => (
-      <Link href={`${routes.FORM}?page=${question}`}>
+      <Link href={`${routes.INVENTORY}?page=${question}`}>
         <a className="underline" onClick={() => toast.dismiss(t.id)}>
           Debes responder la pregunta #
           {question}
@@ -37,17 +38,18 @@ const useBeckForm = () => {
     ));
   }
 
-  function showBeckCreatedSuccessfullyNotification() {
-    return toast.success((t) => (
+  function onSuccess() {
+    toast.success((t) => (
       <Link href={routes.HOME}>
         <a className="underline" onClick={() => toast.dismiss(t.id)}>
           Ver resultados.
         </a>
       </Link>
     ));
+    return push(routes.TIP);
   }
 
-  function showNotCreatedBeckError({ message }) {
+  function onError({ message }) {
     return toast.error(message);
   }
 
@@ -75,8 +77,8 @@ const useBeckForm = () => {
   }, [formState]);
 
   const onSubmit = (answerByQuestion) => create({ answers: Object.values(answerByQuestion) })
-    .then(showBeckCreatedSuccessfullyNotification)
-    .catch(showNotCreatedBeckError);
+    .then(onSuccess)
+    .catch(onError);
 
   return [
     {
@@ -85,8 +87,8 @@ const useBeckForm = () => {
       currentPage: page,
       hasPrevious: !isFirstPage,
       hasNext: !isLastPage,
-      previousPage: isFirstPage ? '' : `${routes.FORM}?page=${page - 1}`,
-      nextPage: isLastPage ? '' : `${routes.FORM}?page=${page + 1}`,
+      previousPage: isFirstPage ? '' : `${routes.INVENTORY}?page=${page - 1}`,
+      nextPage: isLastPage ? '' : `${routes.INVENTORY}?page=${page + 1}`,
       registeredQuestions: questions?.enums?.reduce(
         (accumulator, { value: { id } }) => {
           accumulator[id] = register(`${id}`, {
