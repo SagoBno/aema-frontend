@@ -20,10 +20,10 @@ function BeckPage() {
         <div className="max-w-lg text-center text-xl mt-5">
           {isLoading ? (
             <div className="flex flex-wrap">
-              {[512, 345, 150, 150, 345, 512, 160, 165, 160, 512]
+              {[512, 345, 150, 150, 345, 512, 160, 165, 160, 512, 160, 165, 160]
                 .map((width) => (
                   <div
-                    className="mt-2 ml-2 rounded-lg h-8 block animate-pulse bg-secondary-100"
+                    className="mt-2 ml-2 rounded-lg h-4 block animate-pulse bg-secondary-100"
                     style={{ width }}
                   />
                 ))}
