@@ -13,7 +13,6 @@ function History({ userAnswers, isLoading }) {
     userAnswers,
   });
 
-
   return (
     <main className="grid grid-cols-mainLayout h-[87vh]">
       <section className="h-[inherit] border-r">
