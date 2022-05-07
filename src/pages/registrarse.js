@@ -8,11 +8,21 @@ import RegisterForm from '../components/@forms/RegisterForm';
 
 function RegisterPage() {
   useUser({ ifLoggedRedirectTo: routes.HOME });
-  const [{
-    errors, isSubmitting, firstNameInput,
-    lastNameInput, emailInput, genreInput, birthdayInput, passwordInput,
-    privacyPoliciesInput,
-  }, { onSubmit }] = useRegisterForm();
+
+  const [
+    {
+      errors,
+      isSubmitting,
+      firstNameInput,
+      lastNameInput,
+      emailInput,
+      genreInput,
+      birthdayInput,
+      passwordInput,
+      privacyPoliciesInput,
+    },
+    { onSubmit },
+  ] = useRegisterForm();
 
   return (
     <main className="flex items-center justify-center h-full">

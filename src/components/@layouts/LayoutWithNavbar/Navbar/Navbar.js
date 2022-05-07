@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import routes from 'config/routes';
 import StartBeck from 'icons/StartBeck';
 import RecordBook from 'icons/RecordBook';
+import Specialists from 'icons/Specialists';
 
 const nav = [
   {
@@ -17,6 +18,11 @@ const nav = [
     route: routes.INVENTORY,
     title: 'Formulario',
     icon: <StartBeck />,
+  },
+  {
+    route: routes.SPECIALISTS,
+    title: 'Especialistas',
+    icon: <Specialists />,
   },
 ];
 

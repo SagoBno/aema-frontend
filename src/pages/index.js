@@ -1,15 +1,11 @@
-import routes from 'config/routes';
-
 import History from 'components/History';
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
 
-import useUser from 'hooks/useUser';
 import useUserAnswers from 'hooks/useUserAnswers';
 
 import NoRecordsYet from 'components/@common/NoRecordsYet/NoRecordsYet';
 
 function HistoryPage() {
-  useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
   const {
     data: { userAnswers },
     isLoading,
@@ -27,5 +23,9 @@ function HistoryPage() {
 }
 
 HistoryPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
+
+HistoryPage.meta = {
+  loginRequired: true,
+};
 
 export default HistoryPage;

@@ -8,6 +8,7 @@ import LoginForm from '../components/@forms/LoginForm';
 
 function LoginPage() {
   useUser({ ifLoggedRedirectTo: routes.HOME });
+
   const [{
     errors, isSubmitting, emailInput, passwordInput,
   }, { onSubmit }] = useLoginForm();

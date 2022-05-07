@@ -1,13 +1,8 @@
-import routes from 'config/routes';
-
 import useTip from 'hooks/useTip';
-import useUser from 'hooks/useUser';
 
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
 
-function BeckPage() {
-  useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
-
+function TipPage() {
   const { isLoading, rangeLevel } = useTip();
 
   return (
@@ -37,6 +32,10 @@ function BeckPage() {
   );
 }
 
-BeckPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
+TipPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
 
-export default BeckPage;
+TipPage.meta = {
+  loginRequired: true,
+};
+
+export default TipPage;

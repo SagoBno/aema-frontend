@@ -7,8 +7,8 @@ const DEFAULT_DATA = {
 };
 
 const useResults = (date) => {
-  const LOGIN_KEY = `/results/me?date=${date}`;
-  const { data, error } = useSWR(LOGIN_KEY, () => getResults(date));
+  const SWR_KEY = `/results/me?date=${date}`;
+  const { data, error } = useSWR(SWR_KEY, () => getResults(date));
 
   const isLoading = !error && !data;
 

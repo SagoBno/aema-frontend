@@ -1,17 +1,13 @@
 import { useRouter } from 'next/router';
 
-import routes from 'config/routes';
-
-import useUser from 'hooks/useUser';
 import useAvailability from 'hooks/useAvailability';
 
 import BeckCard from 'components/BeckCard';
+import StartBeck from 'components/@common/StartBeck';
 import NotAvailable from 'components/@common/NotAvailable';
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
-import StartBeck from 'components/@common/StartBeck';
 
 function BeckPage() {
-  useUser({ ifNotLoggedRedirectTo: routes.LOGIN });
   const { query } = useRouter();
   const { availability, nextAvailableDate } = useAvailability();
   if (availability === false) {
@@ -34,5 +30,9 @@ function BeckPage() {
 }
 
 BeckPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;
+
+BeckPage.meta = {
+  loginRequired: true,
+};
 
 export default BeckPage;
