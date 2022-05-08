@@ -9,7 +9,8 @@ const client = axios.create({
 });
 
 export const signup = async ({
-  firstName, lastName, email, genre, birthday, password,
+  parentFirstName, parentLastName, parentBirthday, email, password,
+  childFirstName, childLastName, genre, childBirthday,
 }) => {
   const errorMessages = {
     [StatusCodes.BAD_REQUEST]: 'Tienes errores en algun campo, intenta de nuevo',
@@ -18,12 +19,15 @@ export const signup = async ({
 
   try {
     const { data } = await client.post('/signup', {
-      firstName,
-      lastName,
+      parentFirstName,
+      parentLastName,
+      parentBirthday,
       email,
-      genre,
-      birthday,
       password,
+      childFirstName,
+      childLastName,
+      genre,
+      childBirthday,
     });
     return data;
   } catch (error) {

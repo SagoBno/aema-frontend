@@ -13,12 +13,15 @@ function RegisterPage() {
     {
       errors,
       isSubmitting,
-      firstNameInput,
-      lastNameInput,
+      parentFirstNameInput,
+      parentLastNameInput,
+      parentBirthdayInput,
       emailInput,
-      genreInput,
-      birthdayInput,
       passwordInput,
+      childFirstNameInput,
+      childLastNameInput,
+      genreInput,
+      childBirthdayInput,
       privacyPoliciesInput,
     },
     { onSubmit },
@@ -35,12 +38,15 @@ function RegisterPage() {
                 <RegisterForm
                   errors={errors}
                   isSubmitting={isSubmitting}
-                  firstNameInput={firstNameInput}
-                  lastNameInput={lastNameInput}
+                  parentFirstNameInput={parentFirstNameInput}
+                  parentLastNameInput={parentLastNameInput}
+                  parentBirthdayInput={parentBirthdayInput}
                   emailInput={emailInput}
-                  genreInput={genreInput}
-                  birthdayInput={birthdayInput}
                   passwordInput={passwordInput}
+                  childFirstNameInput={childFirstNameInput}
+                  childLastNameInput={childLastNameInput}
+                  genreInput={genreInput}
+                  childBirthdayInput={childBirthdayInput}
                   privacyPoliciesInput={privacyPoliciesInput}
                   onSubmit={onSubmit}
                 />

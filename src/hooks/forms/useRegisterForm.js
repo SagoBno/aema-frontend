@@ -3,18 +3,56 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useSWRConfig } from 'swr';
+import dayjs from 'dayjs';
 
 import { signup } from '../../services/auth';
 
+// eslint-disable-next-line no-unused-vars
+const checkAge = (birthdayParam) => {
+  const hola = dayjs.utc(birthdayParam).diff(dayjs.utc(new Date()), 'year');
+  console.log(hola);
+  return hola > 18;
+};
+
 const fields = {
-  FIRSTNAME: {
-    name: 'firstName',
+  PARENTFIRSTNAME: {
+    name: 'parentFirstName',
     validations: {
       required: 'Este campo es requerido.',
     },
   },
-  LASTNAME: {
-    name: 'lastName',
+  PARENTLASTNAME: {
+    name: 'parentLastName',
+    validations: {
+      required: 'Este campo es requerido.',
+    },
+  },
+  PARENTBIRTHDAY: {
+    name: 'parentBirthday',
+    validations: {
+      required: 'Este campo es requerido.',
+    },
+  },
+  EMAIL: {
+    name: 'email',
+    validations: {
+      required: 'Este campo es requerido.',
+    },
+  },
+  PASSWORD: {
+    name: 'password',
+    validations: {
+      required: 'Este campo es requerido.',
+    },
+  },
+  CHILDFIRSTNAME: {
+    name: 'childFirstName',
+    validations: {
+      required: 'Este campo es requerido.',
+    },
+  },
+  CHILDLASTNAME: {
+    name: 'childLastName',
     validations: {
       required: 'Este campo es requerido.',
     },
@@ -25,20 +63,8 @@ const fields = {
       required: 'Este campo es requerido',
     },
   },
-  EMAIL: {
-    name: 'email',
-    validations: {
-      required: 'Este campo es requerido.',
-    },
-  },
-  birthday: {
-    name: 'birthday',
-    validations: {
-      required: 'Este campo es requerido.',
-    },
-  },
-  PASSWORD: {
-    name: 'password',
+  CHILDBIRTHDAY: {
+    name: 'childBirthday',
     validations: {
       required: 'Este campo es requerido.',
     },
@@ -76,12 +102,27 @@ const useRegisterForm = () => {
     {
       errors,
       isSubmitting,
-      firstNameInput: register(fields.FIRSTNAME.name, fields.FIRSTNAME.validations),
-      lastNameInput: register(fields.LASTNAME.name, fields.LASTNAME.validations),
+      parentFirstNameInput: register(
+        fields.PARENTFIRSTNAME.name,
+        fields.PARENTFIRSTNAME.validations,
+      ),
+      parentLastNameInput: register(
+        fields.PARENTLASTNAME.name,
+        fields.PARENTLASTNAME.validations,
+      ),
+      parentBirthdayInput: register(fields.PARENTBIRTHDAY.name, fields.PARENTBIRTHDAY.validations),
       emailInput: register(fields.EMAIL.name, fields.EMAIL.validations),
-      genreInput: register(fields.GENRE.name, fields.GENRE.validations),
-      birthdayInput: register(fields.birthday.name, fields.birthday.validations),
       passwordInput: register(fields.PASSWORD.name, fields.PASSWORD.validations),
+      childFirstNameInput: register(
+        fields.CHILDFIRSTNAME.name,
+        fields.CHILDFIRSTNAME.validations,
+      ),
+      childLastNameInput: register(
+        fields.CHILDLASTNAME.name,
+        fields.CHILDLASTNAME.validations,
+      ),
+      genreInput: register(fields.GENRE.name, fields.GENRE.validations),
+      childBirthdayInput: register(fields.CHILDBIRTHDAY.name, fields.CHILDBIRTHDAY.validations),
       privacyPoliciesInput: register(
         fields.PRIVACYPOLICIES.name,
         fields.PRIVACYPOLICIES.validations,

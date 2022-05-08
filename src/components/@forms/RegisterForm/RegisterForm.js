@@ -8,12 +8,15 @@ import Select from '../../@common/Select';
 
 function RegisterForm({
   onSubmit,
-  firstNameInput,
-  lastNameInput,
+  parentFirstNameInput,
+  parentLastNameInput,
+  parentBirthdayInput,
   emailInput,
-  genreInput,
-  birthdayInput,
   passwordInput,
+  childFirstNameInput,
+  childLastNameInput,
+  genreInput,
+  childBirthdayInput,
   privacyPoliciesInput,
   errors,
   isSubmitting,
@@ -22,18 +25,57 @@ function RegisterForm({
     <form onSubmit={onSubmit}>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <TextField
-          label="Nombre"
+          label="Nombre del Padre"
           type="text"
-          placeholder="Nombre"
-          error={errors.firstName}
-          inputProps={firstNameInput}
+          placeholder="Nombre del padre"
+          error={errors.parentFirstName}
+          inputProps={parentFirstNameInput}
         />
         <TextField
-          label="Apellido"
+          label="Apellido del Padre"
           type="text"
-          placeholder="Apellido"
-          error={errors.lastName}
-          inputProps={lastNameInput}
+          placeholder="Apellido del padre"
+          error={errors.parentLastName}
+          inputProps={parentLastNameInput}
+        />
+      </div>
+      <DatePicker
+        label="Fecha de nacimiento del padre"
+        type="date"
+        placeholder="Fecha de nacimiento del padre"
+        error={errors.parentBirthday}
+        inputProps={parentBirthdayInput}
+      />
+      <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
+        <TextField
+          label="Correo electrónico"
+          type="email"
+          placeholder="Correo electrónico"
+          error={errors.email}
+          inputProps={emailInput}
+        />
+        <TextField
+          label="Contraseña"
+          type="password"
+          placeholder="Contraseña"
+          error={errors.password}
+          inputProps={passwordInput}
+        />
+      </div>
+      <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
+        <TextField
+          label="Nombre del hijo"
+          type="text"
+          placeholder="Nombre del hijo"
+          error={errors.childFirstName}
+          inputProps={childFirstNameInput}
+        />
+        <TextField
+          label="Apellido del hijo"
+          type="text"
+          placeholder="Apellido del hijo"
+          error={errors.childLastName}
+          inputProps={childLastNameInput}
         />
       </div>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
@@ -43,27 +85,13 @@ function RegisterForm({
           inputProps={genreInput}
         />
         <DatePicker
-          label="Fecha de nacimiento"
+          label="Fecha de nacimiento del hijo"
           type="date"
-          placeholder="Fecha de nacimiento"
-          error={errors.date}
-          inputProps={birthdayInput}
+          placeholder="Fecha de nacimiento del hijo"
+          error={errors.childBirthday}
+          inputProps={childBirthdayInput}
         />
       </div>
-      <TextField
-        label="Correo electrónico"
-        type="email"
-        placeholder="Correo electrónico"
-        error={errors.email}
-        inputProps={emailInput}
-      />
-      <TextField
-        label="Contraseña"
-        type="password"
-        placeholder="Contraseña"
-        error={errors.password}
-        inputProps={passwordInput}
-      />
       <CheckBox
         label={(
           <div>
