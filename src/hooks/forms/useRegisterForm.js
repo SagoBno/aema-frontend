@@ -4,15 +4,9 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useSWRConfig } from 'swr';
 import dayjs from 'dayjs';
+import { formatDate } from 'utils/dates';
 
 import { signup } from '../../services/auth';
-
-// eslint-disable-next-line no-unused-vars
-const checkAge = (birthdayParam) => {
-  const hola = dayjs.utc(birthdayParam).diff(dayjs.utc(new Date()), 'year');
-  console.log(hola);
-  return hola > 18;
-};
 
 const fields = {
   PARENTFIRSTNAME: {
@@ -31,6 +25,10 @@ const fields = {
     name: 'parentBirthday',
     validations: {
       required: 'Este campo es requerido.',
+      max: {
+        value: formatDate(dayjs().subtract(18, 'year'), 'DD/MM/YYYY'),
+        message: 'Debes ser mayor de edad para poder registrarte.',
+      },
     },
   },
   EMAIL: {
@@ -43,6 +41,10 @@ const fields = {
     name: 'password',
     validations: {
       required: 'Este campo es requerido.',
+      minLength: {
+        value: 8,
+        message: 'Tu contraseña debe contar con mas de 8 caracteres',
+      },
     },
   },
   CHILDFIRSTNAME: {
@@ -67,6 +69,10 @@ const fields = {
     name: 'childBirthday',
     validations: {
       required: 'Este campo es requerido.',
+      max: {
+        value: formatDate(dayjs().subtract(13, 'year'), 'DD/MM/YYYY'),
+        message: 'Tu hijo debe tener 13 años o mas.',
+      },
     },
   },
   PRIVACYPOLICIES: {
