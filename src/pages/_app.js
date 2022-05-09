@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }) {
 
   return getLayout(
     <>
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
       <Toaster position="top-center" reverseOrder />
     </>,

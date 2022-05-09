@@ -17,10 +17,12 @@
   --color-error: 244 67 53; /* rgb(244 67 53) */
 }
 
-html,
-body,
-#__next {
+html, #__next {
   @apply h-full;
+}
+
+body {
+  @apply pt-[64px] h-full;
 }
 
 body {

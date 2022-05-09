@@ -1,3 +1,7 @@
 .c_container {
   @apply w-full md:max-w-7xl mx-auto px-5;
 }
+
+.c_main_with_nav {
+  @apply flex items-center justify-center pb-[110px] md:pb-0 md:pl-[88px] h-full overflow-y-hidden bg-general-bg;
+}

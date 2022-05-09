@@ -3,8 +3,7 @@
 function Severe() {
   return (
     <svg
-      width="250"
-      height="250"
+      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
       viewBox="0 0 928.52587 635.2126"
     >
       <circle cx="546.40861" cy="233" r="233" fill="#f2f2f2" />

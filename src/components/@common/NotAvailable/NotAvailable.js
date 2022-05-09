@@ -6,8 +6,9 @@ function NotAvailable({ nextAvailableDate }) {
     <div className="flex flex-col items-center">
       <NotAvailableIllustration />
       <div className="max-w-lg text-center">
-        <p className="text-3xl">⚠️ Aún no puedes llenar el inventario ⚠️</p>
-        <p className="text-secondary-200 font-light text-base">
+        <p className="text-3xl">⚠️</p>
+        <p className="text-3xl">Aún no puedes llenar el inventario</p>
+        <p className="text-secondary-200 font-light text-base mt-2">
           Que bueno que constantemente quieras validar, sin embargo, para
           que sea efectivo lo debes realizar cada
           {' '}

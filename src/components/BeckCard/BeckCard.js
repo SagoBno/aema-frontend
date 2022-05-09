@@ -18,20 +18,18 @@ function BeckCard() {
   ] = useBeckForm();
 
   return (
-    <div className="pt-10 pb-5 px-8">
-      <BeckForm
-        hasNext={hasNext}
-        nextPage={nextPage}
-        onSubmit={onSubmit}
-        hasPrevious={hasPrevious}
-        previousPage={previousPage}
-        hasError={errors[currentPage]}
-        question={questionWithAnswers?.question}
-        registeredQuestions={registeredQuestions}
-        possibleAnswers={questionWithAnswers?.answers}
-        selectedAnswer={getAnswerOfQuestion(currentPage)}
-      />
-    </div>
+    <BeckForm
+      hasNext={hasNext}
+      nextPage={nextPage}
+      onSubmit={onSubmit}
+      hasPrevious={hasPrevious}
+      previousPage={previousPage}
+      hasError={errors[currentPage]}
+      question={questionWithAnswers?.question}
+      registeredQuestions={registeredQuestions}
+      possibleAnswers={questionWithAnswers?.answers}
+      selectedAnswer={getAnswerOfQuestion(currentPage)}
+    />
   );
 }
 

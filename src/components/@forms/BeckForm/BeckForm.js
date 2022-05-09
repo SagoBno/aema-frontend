@@ -31,7 +31,7 @@ function BeckForm({
       </div>
       <ul
         className={cn(
-          'self-center grid grid-cols-questions gap-4 rounded-lg overflow-y-auto p-2',
+          'self-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg h-full overflow-y-auto p-2',
           {
             'border-2 border-error/50': hasError,
           },

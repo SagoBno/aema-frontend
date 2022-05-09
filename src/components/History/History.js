@@ -14,8 +14,8 @@ function History({ userAnswers, isLoading }) {
   });
 
   return (
-    <main className="grid grid-cols-mainLayout h-[87vh]">
-      <section className="h-[inherit] border-r">
+    <>
+      <section className="h-full overflow-hidden border-r">
         <RecordList
           records={records}
           isLoading={isLoading}
@@ -25,20 +25,19 @@ function History({ userAnswers, isLoading }) {
         />
       </section>
       {selectedRecord && (
-      <section className="h-[inherit]">
-        <UserAnswersList
-          onDownloadUserAnswers={onDownloadUserAnswers}
-          userAnswers={history[selectedRecord]}
-        />
-      </section>
+        <section className="h-full overflow-hidden">
+          <UserAnswersList
+            onDownloadUserAnswers={onDownloadUserAnswers}
+            userAnswers={history[selectedRecord]}
+          />
+        </section>
       )}
-
       {!selectedRecord && !!userAnswers?.length && (
-      <section className="flex items-center justify-center">
-        <DownloadHistory onDownloadHistory={onDownloadHistory} />
-      </section>
+        <section className="h-full mx-auto flex items-center justify-center">
+          <DownloadHistory onDownloadHistory={onDownloadHistory} />
+        </section>
       )}
-    </main>
+    </>
   );
 }
 

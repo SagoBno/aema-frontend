@@ -1,10 +1,9 @@
 // https://undraw.co/illustrations
 
-function BeckForm() {
+function BeckInstructions() {
   return (
     <svg
-      width="250"
-      height="250"
+      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
       viewBox="0 0 856.385 559.94"
     >
       <g
@@ -241,4 +240,4 @@ function BeckForm() {
   );
 }
 
-export default BeckForm;
+export default BeckInstructions;

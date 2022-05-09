@@ -3,9 +3,7 @@
 function Slight() {
   return (
     <svg
-      data-name="Layer 1"
-      width="250"
-      height="250"
+      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
       viewBox="0 0 888 623.12839"
     >
       <circle cx="787.19149" cy="69.11547" r="47.49974" fill="#ff6584" />

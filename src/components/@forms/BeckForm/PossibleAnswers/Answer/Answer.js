@@ -13,7 +13,7 @@ const Answer = forwardRef(
       ref={ref}
       key={id}
       className={cn(
-        'text-center shadow rounded-lg p-5 cursor-pointer border-2 border-transparent border-solid',
+        'text-center shadow rounded-lg p-5 cursor-pointer border-2 border-transparent border-solid bg-general-bg flex items-center justify-center',
         {
           'border-2 border-primary-500 border-solid': isSelected,
         },
@@ -27,14 +27,16 @@ const Answer = forwardRef(
         });
       }}
     >
-      <Image
-        alt={name}
-        src={`/img/beck/P${question}/${id}.png`}
-        className="mx-auto"
-        height={128}
-        width={128}
-      />
-      <p className="text-secondary-400 mt-5">{name}</p>
+      <div>
+        <Image
+          alt={name}
+          src={`/img/beck/P${question}/${id}.png`}
+          className="mx-auto"
+          height={128}
+          width={128}
+        />
+        <p className="text-secondary-400 mt-5">{name}</p>
+      </div>
     </li>
   ),
 );

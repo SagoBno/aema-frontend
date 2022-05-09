@@ -26,10 +26,15 @@ const nav = [
   },
 ];
 
-function Navbar() {
+function Navbar({ className }) {
   const { pathname } = useRouter();
   return (
-    <nav className="p-4 border-t md:border-t-0 md:border-r border-secondary-100 fixed left-0 right-0 bottom-0 z-10 bg-general-bg md:bg-transparent md:static">
+    <nav
+      className={cn(
+        'p-4 border-t md:border-t-0 md:border-r border-secondary-100 fixed left-0 bottom-0 right-0 md:right-[unset] md:top-[64px] z-10 bg-general-bg',
+        { className: !!className?.length > 0 },
+      )}
+    >
       <ul className="flex justify-around md:block">
         {nav.map(({ icon, route, title }) => (
           <li key={route} title={title}>

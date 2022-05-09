@@ -7,26 +7,28 @@ import useUser from '../../../../hooks/useUser';
 function Header() {
   const { logout } = useUser();
   return (
-    <nav className="py-4">
+    <header className="py-4 fixed top-0 left-0 right-0 z-10 bg-primary-400 border-b">
       <div className="c_container flex justify-between items-center">
         <div className="text-2xl font-bold text-secondary-0">
           <Link href={routes.HOME}>
             <a>AEMA</a>
           </Link>
         </div>
-        <ul>
-          <li>
-            <button
-              type="button"
-              onClick={logout}
-              className="text-secondary-0 font-bold hover:underline"
-            >
-              Cerrar sesión
-            </button>
-          </li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <button
+                type="button"
+                onClick={logout}
+                className="text-secondary-0 font-bold hover:underline"
+              >
+                Cerrar sesión
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 }
 

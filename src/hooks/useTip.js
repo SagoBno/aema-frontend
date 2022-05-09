@@ -53,7 +53,6 @@ const useTip = () => {
     if (!isLoading) {
       scoresRanges.forEach((scoresRange, key) => {
         if (!isBetween(...scoresRange, lastResult.total)) return;
-
         setRangeLevel(key);
       });
     }

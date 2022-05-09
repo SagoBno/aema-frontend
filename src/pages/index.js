@@ -13,13 +13,17 @@ function HistoryPage() {
 
   if (!isLoading && !userAnswers.length) {
     return (
-      <main className="flex items-center justify-center">
+      <main className="w-full h-full bg-general-bg flex items-center justify-center">
         <NoRecordsYet />
       </main>
     );
   }
 
-  return <History userAnswers={userAnswers} isLoading={isLoading} />;
+  return (
+    <main className="w-full h-full flex bg-general-bg">
+      <History userAnswers={userAnswers} isLoading={isLoading} />
+    </main>
+  );
 }
 
 HistoryPage.getLayout = (page) => <LayoutWithNavbar>{page}</LayoutWithNavbar>;

@@ -1,13 +1,8 @@
 import usePsychologists from 'hooks/usePsychologists';
 
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
-import cn from 'classnames';
 
 const columns = [
-  {
-    value: 'Nombre',
-    key: 'name',
-  },
   {
     value: 'Correo electrónico',
     key: 'email',
@@ -42,36 +37,38 @@ function SpecialistsPage() {
           href={psychologist[key]}
           rel="noopener noreferrer nofollow"
           target="_blank"
-          className="underline"
+          className="truncate block"
         >
-          Visitar
+          {psychologist[key]}
         </a>
       );
     }
 
-    return psychologist[key];
+    return <p className="truncate">{psychologist[key]}</p>;
   };
 
   return (
-    <main className="overflow-auto">
-      <ul className="bg-secondary-100/20 grid grid-cols-6">
-        {columns.map(({ value }) => (
-          <li className="p-4 text-xs uppercase font-bold">{value}</li>
-        ))}
-      </ul>
-      <ul className="grid grid-flow-row">
-        {psychologists.map((psychologist) => (
-          <ul className="grid grid-cols-6">
-            {columns.map(({ key }) => (
-              <li
-                className={cn('p-4 text-sm font-light', {
-                  'text-ellipsis overflow-hidden': key === 'page',
-                })}
-              >
-                {renderField(psychologist, key)}
-              </li>
-            ))}
-          </ul>
+    <main className="bg-transparent h-full overflow-y-auto">
+      <h1 className="text-center text-3xl font-bold mt-5">Especialistas</h1>
+      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-4 md:mx-10 mt-10 pb-5 overflow-y-auto">
+        {psychologists.map((psychologist, psychologistIndex) => (
+          <li
+            ley={`${psychologist.name}-${psychologistIndex}`}
+            className="shadow-lg bg-general-bg rounded-lg"
+          >
+            <ul className="pb-4 grid grid-flow-row gap-2">
+              <p className="text-center py-4 px-2 border-b text-sm md:text-base font-bold bg-secondary-100/20">{psychologist.name}</p>
+              {columns.map(({ key, value }) => psychologist[key] && (
+
+                <li className="grid grid-cols-3 gap-4 text-sm font-light px-4">
+                  <span className="font-bold ml-1">{value}</span>
+                  <div className="col-span-2">
+                    {renderField(psychologist, key)}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </li>
         ))}
       </ul>
     </main>

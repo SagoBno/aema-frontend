@@ -7,7 +7,7 @@ function Record({
   return (
     <li>
       <button
-        className={cn('border-b p-4 flex items-center justify-between font-light', {
+        className={cn('border-b p-4 flex items-center justify-between w-full font-light', {
           'bg-secondary-100/30 font-normal': isSelected && !isLoading,
           'cursor-pointer hover:bg-secondary-100/30': !isLoading,
         })}

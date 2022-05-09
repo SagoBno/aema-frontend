@@ -5,8 +5,8 @@ import Navbar from './Navbar';
 function LayoutWithNavbar({ children }) {
   return (
     <MainLayout>
-      <div className=" bg-general-bg grid grid-cols-mainLayout relative">
-        <Navbar />
+      <Navbar />
+      <div className="c_main_with_nav">
         {children}
       </div>
     </MainLayout>

@@ -3,8 +3,7 @@
 function Minimum() {
   return (
     <svg
-      width="250"
-      height="250"
+      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
       viewBox="0 0 887.77227 772.83071"
     >
       <title>happy_music</title>

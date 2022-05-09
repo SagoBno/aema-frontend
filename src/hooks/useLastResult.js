@@ -20,7 +20,7 @@ const useLastResult = (specificDate) => {
 
   return {
     lastResult,
-    isLoading: !lastResult?.total,
+    isLoading: !lastResult?.id,
   };
 };
 

@@ -19,7 +19,7 @@ function UserAnswersList({ onDownloadUserAnswers, userAnswers = [] }) {
           </a>
         </Link>
       </p>
-      <ul className="w-fit h-full overflow-y-auto">
+      <ul className="h-full overflow-y-auto">
         {userAnswers.map((userAnswer) => (
           <li key={userAnswer.id} className="border-b p-4 flex">
             <Image

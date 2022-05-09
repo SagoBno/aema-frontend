@@ -3,8 +3,7 @@
 function NoRecords() {
   return (
     <svg
-      width="250"
-      height="250"
+      className="w-[70px] h-[70px] md:w-[150px] md:h-[150px] lg:w-[250px] lg:h-[250px]"
       viewBox="0 0 647.63626 632.17383"
     >
       <path
