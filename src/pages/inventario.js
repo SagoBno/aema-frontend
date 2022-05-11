@@ -2,21 +2,18 @@ import { useRouter } from 'next/router';
 
 import useAvailability from 'hooks/useAvailability';
 
-import { getCookie } from 'utils/cookies';
 import BeckCard from 'components/BeckCard';
 import NotAvailable from 'components/@common/NotAvailable';
 import BeckInstructions from 'components/@common/BeckInstructions';
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
 
-function BeckPage({ featureFlags }) {
+function BeckPage({ isAvailable }) {
   const { query } = useRouter();
-  const { availability, nextAvailableDate } = useAvailability();
-  const featureFlagAlwaysAvailableToSendUserAnswers = (
-    featureFlags.FEATURE_FLAG_ALWAYS_AVAILABLE_TO_SEND_USERS_ANSWERS
-    || getCookie('FEATURE_FLAG_ALWAYS_AVAILABLE_TO_SEND_USERS_ANSWERS') === 'true'
-  );
+  const { availability, nextAvailableDate } = useAvailability({
+    serverSaysIsAvailable: isAvailable,
+  });
 
-  if (featureFlagAlwaysAvailableToSendUserAnswers === false && availability === false) {
+  if (availability === false) {
     return (
       <main className="w-full h-full overflow-y-auto px-4 bg-general-bg flex items-center justify-center">
         <NotAvailable nextAvailableDate={nextAvailableDate} />
@@ -26,7 +23,7 @@ function BeckPage({ featureFlags }) {
 
   if (!query.page) {
     return (
-      <main className="w-full bg-general-bg overflow-y-auto h-full">
+      <main className="w-full h-full bg-general-bg overflow-y-auto flex items-center justify-center">
         <BeckInstructions />
       </main>
     );
@@ -45,13 +42,11 @@ BeckPage.meta = {
   loginRequired: true,
 };
 
-export const getServerSideProps = ({ req }) => {
-  const featureFlags = Object.keys(req.cookies).filter((cookieName) => cookieName.includes('FEATURE_FLAG'));
-  return {
-    props: {
-      featureFlags,
-    },
-  };
-};
+export const getServerSideProps = ({ req }) => ({
+  props: {
+    isAvailable:
+        req.cookies.FEATURE_FLAG_ALWAYS_AVAILABLE_TO_SEND_USERS_ANSWERS === 'true',
+  },
+});
 
 export default BeckPage;

@@ -5,7 +5,7 @@ import validateAvailability from 'utils/validateAvailability';
 
 import useUserAnswers from './useUserAnswers';
 
-const useAvailability = () => {
+const useAvailability = ({ serverSaysIsAvailable } = {}) => {
   const {
     data: { userAnswers },
     isLoading: userAnswersAreLoading,
@@ -21,7 +21,7 @@ const useAvailability = () => {
   }, [lastUserAnswer, userAnswersAreLoading]);
 
   return {
-    availability: availability || !lastUserAnswer,
+    availability: serverSaysIsAvailable ?? (availability || !lastUserAnswer),
     lastSubmitDate: lastUserAnswer?.createdAt,
     nextAvailableDate: lastUserAnswer?.createdAt ? addWeeks(lastUserAnswer.createdAt, 2) : null,
   };

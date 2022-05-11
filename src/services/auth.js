@@ -9,11 +9,19 @@ const client = axios.create({
 });
 
 export const signup = async ({
-  parentFirstName, parentLastName, parentBirthday, email, password,
-  childFirstName, childLastName, genre, childBirthday,
+  parentFirstName,
+  parentLastName,
+  parentBirthday,
+  email,
+  password,
+  childFirstName,
+  childLastName,
+  genre,
+  childBirthday,
 }) => {
   const errorMessages = {
-    [StatusCodes.BAD_REQUEST]: 'Tienes errores en algun campo, intenta de nuevo',
+    [StatusCodes.BAD_REQUEST]:
+      'Tienes errores en algun campo, intenta de nuevo',
     default: 'Error al crear cuenta, intentalo más tarde.',
   };
 
@@ -44,10 +52,18 @@ export const login = async ({ email, password }) => {
   };
 
   try {
-    const { data } = await client.post('/login/password', {
-      email,
-      password,
-    });
+    const { data } = await client.post(
+      '/login/password',
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          Cookie: document.cookie,
+        },
+      },
+    );
     return data;
   } catch (error) {
     throw new Error(
