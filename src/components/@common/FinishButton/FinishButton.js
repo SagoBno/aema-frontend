@@ -5,8 +5,8 @@ function FinishButton({ disabled }) {
   return (
     <button
       type="submit"
-      className={cn('c_next-step-button', {
-        'c_next-step-button--disabled': disabled,
+      className={cn('c_primary-button', {
+        'c_primary-button--disabled': disabled,
       })}
     >
       Finalizar

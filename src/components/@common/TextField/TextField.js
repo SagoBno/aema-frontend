@@ -15,7 +15,6 @@ function TextField({
         <input
           type={type}
           placeholder={placeholder}
-          style={{ transition: 'all .15s ease' }}
           className="border-0 p-3 placeholder-secondary-200 text-secondary-400 bg-white rounded-full text-sm shadow focus:outline-none focus:ring w-full mt-2"
           {...inputProps}
         />

@@ -3,7 +3,7 @@ const routes = {
   SPECIALISTS: '/especialistas',
   INVENTORY: '/inventario',
   LOGIN: '/iniciar-sesion',
-  SIGNUP: '/registrarse',
+  SIGNUP: '/registrate',
   FORGOT_PASSWORD: '/recuperar',
   HOME: '/',
 };

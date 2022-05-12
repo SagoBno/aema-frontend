@@ -30,13 +30,12 @@ function LoginForm({
 
       <div className="text-center mt-6">
         <button
-          className={cn('c_primary-button', {
-            'c_primary-button--submitting': isSubmitting,
+          className={cn('c_primary-button w-full', {
+            'c_primary-button--disabled': isSubmitting,
           })}
           type="submit"
-          style={{ transition: 'all .15s ease' }}
         >
-          {isSubmitting ? <LoaderIcon className="mx-auto" /> : 'Login'}
+          {isSubmitting ? <LoaderIcon className="mx-auto py-2" /> : 'Iniciar sesión'}
         </button>
       </div>
     </form>

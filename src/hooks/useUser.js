@@ -10,9 +10,8 @@ const useUser = ({ ifLoggedRedirectTo, ifNotLoggedRedirectTo } = {}) => {
   const { data: user, error, mutate } = useSWR(LOGIN_KEY, getLoginStatus);
 
   const isLoading = !error && !user;
-
   useEffect(() => {
-    if (!error && ifLoggedRedirectTo) {
+    if (!error && user && ifLoggedRedirectTo) {
       Router.push(ifLoggedRedirectTo ?? Router.query.prev);
     }
     if (error && ifNotLoggedRedirectTo) {

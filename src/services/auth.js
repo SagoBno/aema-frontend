@@ -72,15 +72,12 @@ export const login = async ({ email, password }) => {
   }
 };
 
-// eslint-disable-next-line consistent-return
 export const getLoginStatus = async () => {
   try {
     const { data } = await client.get('/login');
     return data.data;
-  } catch (error) {
-    if (error?.response?.status === StatusCodes.UNAUTHORIZED) {
-      throw new Error(ReasonPhrases.UNAUTHORIZED);
-    }
+  } catch {
+    throw new Error(ReasonPhrases.UNAUTHORIZED);
   }
 };
 
