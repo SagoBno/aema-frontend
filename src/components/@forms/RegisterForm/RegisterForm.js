@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import ChildInfo from './ChildInfo/ChildInfo';
+import { useState } from 'react';
 
 import UserInfo from './UserInfo';
+import ChildInfo from './ChildInfo';
 
 function RegisterForm({
   onSubmit,
