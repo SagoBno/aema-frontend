@@ -19,16 +19,19 @@ function UserAnswersList({ onDownloadUserAnswers, userAnswers = [] }) {
           </a>
         </Link>
       </p>
-      <ul className="h-full overflow-y-auto">
+      <ul className="h-[calc(100%-60px)] overflow-y-auto">
         {userAnswers.map((userAnswer) => (
-          <li key={userAnswer.id} className="border-b p-4 flex">
-            <Image
-              alt={userAnswer.answer}
-              src={`/img/beck/P${userAnswer.questionId}/${userAnswer.answerId}.png`}
-              height={40}
-              width={40}
-            />
-            <div className="ml-6">
+          <li key={userAnswer.id} className="border-b p-4 grid grid-cols-4 md:grid-cols-7 w-full">
+            <div className="max-w-[70px] mx-auto flex items-center">
+              <Image
+                alt={userAnswer.answer}
+                src={`/img/beck/P${userAnswer.questionId}/${userAnswer.answerId}.png`}
+                height={120}
+                width={120}
+                className="max-w-[100px]"
+              />
+            </div>
+            <div className="ml-6 col-span-3 md:col-span-6">
               <p>{userAnswer.question}</p>
               <p className="text-secondary-300 font-light">{userAnswer.answer}</p>
             </div>

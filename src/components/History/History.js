@@ -14,8 +14,8 @@ function History({ userAnswers, isLoading }) {
   });
 
   return (
-    <>
-      <section className="h-full overflow-hidden border-r">
+    <div className="md:flex h-full">
+      <section className="h-1/3  md:h-full overflow-hidden border-b-2 md:border-r min-w-max">
         <RecordList
           records={records}
           isLoading={isLoading}
@@ -25,7 +25,7 @@ function History({ userAnswers, isLoading }) {
         />
       </section>
       {selectedRecord && (
-        <section className="h-full overflow-hidden">
+        <section className="h-2/3 md:h-full overflow-hidden md:border-r">
           <UserAnswersList
             onDownloadUserAnswers={onDownloadUserAnswers}
             userAnswers={history[selectedRecord]}
@@ -33,11 +33,11 @@ function History({ userAnswers, isLoading }) {
         </section>
       )}
       {!selectedRecord && !!userAnswers?.length && (
-        <section className="h-full mx-auto flex items-center justify-center">
+        <section className="h-2/3 md:h-full mx-auto flex items-center justify-center">
           <DownloadHistory onDownloadHistory={onDownloadHistory} />
         </section>
       )}
-    </>
+    </div>
   );
 }
 

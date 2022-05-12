@@ -20,7 +20,7 @@ function HistoryPage() {
   }
 
   return (
-    <main className="w-full h-full flex bg-general-bg">
+    <main className="w-full h-full bg-general-bg">
       <History userAnswers={userAnswers} isLoading={isLoading} />
     </main>
   );

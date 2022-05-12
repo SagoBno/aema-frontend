@@ -5,6 +5,7 @@ import 'styles/globals.css';
 import 'styles/components.css';
 import routes from 'config/routes';
 import useUser from 'hooks/useUser';
+import useFrequentTips from 'hooks/useFrequentTips';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   const { loginRequired } = Component.meta || {};
 
   useUser({ ...(loginRequired ? { ifNotLoggedRedirectTo: routes.LOGIN } : {}) });
+  useFrequentTips();
 
   return getLayout(
     <>

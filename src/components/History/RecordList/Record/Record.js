@@ -15,7 +15,7 @@ function Record({
         onClick={() => onSelectRecord(record)}
       >
         <p
-          className={cn('capitalize', {
+          className={cn('capitalize text-sm', {
             'animate-pulse bg-secondary-100 rounded-lg w-56 h-6 block': isLoading,
           })}
         >

@@ -25,7 +25,7 @@ function RecordList({
           </button>
         )}
       </p>
-      <ul className="w-fit h-full overflow-y-auto">
+      <ul className="md:w-fit h-full overflow-y-auto">
         {recordsToShow.map((record, index) => {
           const isSelected = record === selectedRecord;
           return (
