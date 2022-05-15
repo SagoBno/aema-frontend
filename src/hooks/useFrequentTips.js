@@ -13,7 +13,7 @@ const TIPS = [
   'Escucha tu canción favorita',
   'Evalúa los pros y contras de tolerar el malestar ',
   'Admitir ciertas cosas que te alivia el sufrimiento ',
-  'Sonríe, recuerda que la actitud que toma tu cuero se la transmites a tu mente',
+  'Sonríe, recuerda que la actitud que toma tu cuerpo se la transmites a tu mente',
   'Tú como padre o tutor puedes fomentar actividades sociales ',
   'Tú como padre o tutor antes de retarlo pregúntate por qué hacen aquello que te molesta ',
   'Tú como padre o tutor escúchalo empáticamente',
@@ -24,22 +24,22 @@ const useFrequentTips = () => {
   const [tipIndex, setTipIndex] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTipIndex((prev) => (tipIndex >= TIPS.length ? 0 : prev + 1));
-    }, FREQUENCY);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    toast.custom(
-      (t) => <FrequentTip visible={t.visible} id={t.id} tip={TIPS[tipIndex]} />,
-      {
-        duration: DURATION,
-        position: POSITION,
+    const timeoutId = setTimeout(
+      () => {
+        toast.custom(
+          (t) => <FrequentTip visible={t.visible} id={t.id} tip={TIPS[tipIndex]} />,
+          {
+            duration: DURATION,
+            position: POSITION,
+          },
+        );
+        setTipIndex((prev) => (prev >= TIPS.length - 1 ? 0 : prev + 1));
       },
+      FREQUENCY,
     );
-  }, [tipIndex]);
+
+    return () => clearTimeout(timeoutId);
+  }, [tipIndex, setTipIndex]);
 };
 
 export default useFrequentTips;

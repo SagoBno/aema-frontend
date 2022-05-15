@@ -6,7 +6,7 @@ function TipPage() {
   const { isLoading, rangeLevel } = useTip();
 
   return (
-    <main className="flex flex-col items-center mx-5 overflow-hidden">
+    <main className="w-full h-full bg-general-bg overflow-y-auto flex flex-col items-center justify-center py-5">
       {isLoading ? (
         <div className="h-[170px] w-[170px] animate-pulse bg-secondary-100 rounded-full" />
       ) : rangeLevel?.image}
