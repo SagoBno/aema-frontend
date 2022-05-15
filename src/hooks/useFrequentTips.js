@@ -8,16 +8,16 @@ const DURATION = 40000;
 const POSITION = 'bottom-right';
 
 const TIPS = [
-  'Distráete generando emociones opuestas a las que te molesta o sensaciones intensas que no te lastimen',
-  'Come algo que te haga sentir mejor',
-  'Escucha tu canción favorita',
-  'Evalúa los pros y contras de tolerar el malestar ',
-  'Admitir ciertas cosas que te alivia el sufrimiento ',
-  'Sonríe, recuerda que la actitud que toma tu cuerpo se la transmites a tu mente',
-  'Tú como padre o tutor puedes fomentar actividades sociales ',
-  'Tú como padre o tutor antes de retarlo pregúntate por qué hacen aquello que te molesta ',
-  'Tú como padre o tutor escúchalo empáticamente',
-  'Tú como padre o tutor promueve actividades placenteras',
+  'Distráete generando emociones opuestas a las que te molesta o sensaciones intensas que no te lastimen.',
+  'Come algo que te haga sentir mejor.',
+  'Escucha tu canción favorita.',
+  'Evalúa los pros y contras de tolerar el malestar.',
+  'Admitir ciertas cosas te alivia el sufrimiento.',
+  'Sonríe, recuerda que la actitud que toma tu cuerpo se la transmites a tu mente.',
+  'Tú, como padre o tutor, puedes fomentar actividades sociales.',
+  'Tú, como padre o tutor, antes de retarlo, pregúntate por qué hacen aquello que te molesta.',
+  'Tú, como padre o tutor, escúchalo empáticamente.',
+  'Tú, como padre o tutor, promueve actividades placenteras.',
 ];
 
 const useFrequentTips = () => {
