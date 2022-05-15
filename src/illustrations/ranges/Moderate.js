@@ -3,7 +3,7 @@
 function Moderate() {
   return (
     <svg
-      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
+      className="w-full h-full"
       viewBox="0 0 956.73 713.19"
     >
       <title>creative thinking</title>

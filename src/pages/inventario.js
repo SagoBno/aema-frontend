@@ -15,7 +15,7 @@ function BeckPage({ isAvailable }) {
 
   if (availability === false) {
     return (
-      <main className="w-full h-full overflow-y-auto px-4 bg-general-bg flex items-center justify-center">
+      <main className="w-full h-full overflow-y-auto p-5 bg-general-bg flex items-center justify-center">
         <NotAvailable nextAvailableDate={nextAvailableDate} />
       </main>
     );
@@ -23,14 +23,14 @@ function BeckPage({ isAvailable }) {
 
   if (!query.page) {
     return (
-      <main className="w-full h-full bg-general-bg overflow-y-auto md:flex md:items-center md:justify-center py-5">
+      <main className="w-full h-full bg-general-bg overflow-y-auto md:flex md:items-center md:justify-center p-5">
         <BeckInstructions />
       </main>
     );
   }
 
   return (
-    <main className="w-full h-full p-4 md:p-8 bg-general-bg">
+    <main className="w-full h-full p-5 md:p-8 bg-general-bg">
       <BeckCard />
     </main>
   );
