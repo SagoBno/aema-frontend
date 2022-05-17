@@ -35,20 +35,24 @@ function UserInfo({
         error={errors.parentBirthday}
         inputProps={parentBirthdayInput}
       />
-      <TextField
-        label="Correo electrónico"
-        type="email"
-        placeholder="Correo electrónico"
-        error={errors.email}
-        inputProps={emailInput}
-      />
-      <TextField
-        label="Contraseña"
-        type="password"
-        placeholder="Contraseña"
-        error={errors.password}
-        inputProps={passwordInput}
-      />
+      {emailInput && (
+        <TextField
+          label="Correo electrónico"
+          type="email"
+          placeholder="Correo electrónico"
+          error={errors.email}
+          inputProps={emailInput}
+        />
+      )}
+      {passwordInput && (
+        <TextField
+          label="Contraseña"
+          type="password"
+          placeholder="Contraseña"
+          error={errors.password}
+          inputProps={passwordInput}
+        />
+      )}
       <div className="text-center mt-6 grid grid-cols-2 gap-5">
         <button
           className="c_next-step-button w-full col-start-2"

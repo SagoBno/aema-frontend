@@ -18,6 +18,7 @@ function ChildInfo({
   privacyPoliciesInput,
   isSubmitting,
   onPreviousPage,
+  isEditing = false,
 }) {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -83,21 +84,22 @@ function ChildInfo({
           })}
           type="submit"
         >
-          {isSubmitting ? <LoaderIcon className="mx-auto py-2" /> : 'Regístrate'}
+          {isSubmitting && <LoaderIcon className="mr-2" />}
+          {isEditing ? 'Guardar' : 'Regístrate'}
         </button>
       </div>
       {showModal ? (
         <Modal
-          title="Politicas de privacidad"
+          title="Políticas de Privacidad"
           setShowModal={setShowModal}
           body={<PrivacyPolicies />}
           footer={(
             <button
-              className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-error font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"
               onClick={() => setShowModal(false)}
             >
-              Close
+              Cerrar
             </button>
           )}
         />

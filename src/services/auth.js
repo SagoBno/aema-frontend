@@ -45,6 +45,43 @@ export const signup = async ({
   }
 };
 
+export const updateUser = async ({
+  parentFirstName,
+  parentLastName,
+  parentBirthday,
+  email,
+  password,
+  childFirstName,
+  childLastName,
+  genre,
+  childBirthday,
+}) => {
+  const errorMessages = {
+    [StatusCodes.BAD_REQUEST]:
+      'Tienes errores en algun campo, intenta de nuevo',
+    default: 'Error al crear cuenta, intentalo más tarde.',
+  };
+
+  try {
+    const { data } = await client.patch('/updateuser', {
+      parentFirstName,
+      parentLastName,
+      parentBirthday,
+      email,
+      password,
+      childFirstName,
+      childLastName,
+      genre,
+      childBirthday,
+    });
+    return data;
+  } catch (error) {
+    throw new Error(
+      errorMessages[error?.response?.status] ?? errorMessages.default,
+    );
+  }
+};
+
 export const login = async ({ email, password }) => {
   const errorMessages = {
     [StatusCodes.BAD_REQUEST]: 'Correo electrónico o contraseña incorrecta',

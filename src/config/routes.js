@@ -6,6 +6,7 @@ const routes = {
   SIGNUP: '/registrate',
   FORGOT_PASSWORD: '/recuperar',
   HOME: '/',
+  PROFILE: '/perfil',
 };
 
 export default routes;

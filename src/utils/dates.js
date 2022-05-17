@@ -16,3 +16,9 @@ export const getDiffInWeeks = (dateA, dateB) => dayjs.utc(dateA).diff(dayjs.utc(
 export const addWeeks = (date, weeksToAdd) => dayjs(date).add(weeksToAdd, 'week');
 
 export const timeToNow = (futureDate) => dayjs(futureDate).fromNow();
+
+export const addDays = (date, daysToAdd) => dayjs(date).add(daysToAdd, 'day');
+
+export {
+  dayjs,
+};

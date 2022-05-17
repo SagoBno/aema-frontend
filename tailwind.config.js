@@ -34,6 +34,7 @@ module.exports = {
       },
       gridTemplateRows: {
         questionsWithControls: 'auto 1fr auto',
+        modal: 'auto 1fr auto',
       },
     },
   },

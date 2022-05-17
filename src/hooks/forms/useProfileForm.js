@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useSWRConfig } from 'swr';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { useSWRConfig } from 'swr';
-import dayjs from 'dayjs';
-import { formatDate } from 'utils/dates';
+import { useState, useEffect } from 'react';
 
-import { signup } from '../../services/auth';
+import useUser from 'hooks/useUser';
+import { dayjs, formatDate } from 'utils/dates';
 
 const fields = {
   PARENTFIRSTNAME: {
@@ -83,53 +82,98 @@ const fields = {
   },
 };
 
-const useRegisterForm = () => {
+const useProfileForm = ({ user, onSubmit: onSubmitParam } = {}) => {
   const { push, query } = useRouter();
+  const { user: loggedUserInfo } = useUser();
   const { mutate } = useSWRConfig();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = ({ childBirthday, parentBirthday, ...data }) => {
     setIsSubmitting(true);
-    signup(data)
+    const [childBirthdayYYYY, childBirthdayMM, childBirthdayDD] = childBirthday.split('-');
+    const [parentBirthdayYYYY, parentBirthdayMM, parentBirthdayDD] = parentBirthday.split('-');
+    onSubmitParam({
+      ...data,
+      childBirthday: dayjs()
+        .year(childBirthdayYYYY)
+        .month(childBirthdayMM - 1)
+        .date(childBirthdayDD)
+        .startOf('date'),
+      parentBirthday: dayjs()
+        .year(parentBirthdayYYYY)
+        .month(parentBirthdayMM - 1)
+        .date(parentBirthdayDD)
+        .startOf('date'),
+    })
       .then(() => {
-        mutate('/auth/register');
-        push(query?.prev ?? '/');
+        mutate('/auth/login', { ...loggedUserInfo, ...data }).then(() => push(query?.prev ?? '/'));
       })
       .catch((e) => toast.error(e.message))
       .finally(() => setIsSubmitting(false));
   };
 
+  useEffect(() => {
+    if (user) {
+      Object.values(fields).forEach((field) => {
+        const fieldIsEmailOrPassword = [
+          fields.EMAIL.name,
+          fields.PASSWORD.name,
+        ].includes(field.name);
+
+        if (!fieldIsEmailOrPassword) {
+          setValue(field.name, user[field.name]);
+        }
+      });
+    }
+  }, [user]);
+
   return [
     {
       errors,
       isSubmitting,
-      parentFirstNameInput: register(
+      registerParentFirstNameInput: () => register(
         fields.PARENTFIRSTNAME.name,
         fields.PARENTFIRSTNAME.validations,
       ),
-      parentLastNameInput: register(
+      registerParentLastNameInput: () => register(
         fields.PARENTLASTNAME.name,
         fields.PARENTLASTNAME.validations,
       ),
-      parentBirthdayInput: register(fields.PARENTBIRTHDAY.name, fields.PARENTBIRTHDAY.validations),
-      emailInput: register(fields.EMAIL.name, fields.EMAIL.validations),
-      passwordInput: register(fields.PASSWORD.name, fields.PASSWORD.validations),
-      childFirstNameInput: register(
+      registerParentBirthdayInput: () => register(
+        fields.PARENTBIRTHDAY.name,
+        fields.PARENTBIRTHDAY.validations,
+      ),
+      registerEmailInput: () => register(
+        fields.EMAIL.name,
+        fields.EMAIL.validations,
+      ),
+      registerPasswordInput: () => register(
+        fields.PASSWORD.name,
+        fields.PASSWORD.validations,
+      ),
+      registerChildFirstNameInput: () => register(
         fields.CHILDFIRSTNAME.name,
         fields.CHILDFIRSTNAME.validations,
       ),
-      childLastNameInput: register(
+      registerChildLastNameInput: () => register(
         fields.CHILDLASTNAME.name,
         fields.CHILDLASTNAME.validations,
       ),
-      genreInput: register(fields.GENRE.name, fields.GENRE.validations),
-      childBirthdayInput: register(fields.CHILDBIRTHDAY.name, fields.CHILDBIRTHDAY.validations),
-      privacyPoliciesInput: register(
+      registerGenreInput: () => register(
+        fields.GENRE.name,
+        fields.GENRE.validations,
+      ),
+      registerChildBirthdayInput: () => register(
+        fields.CHILDBIRTHDAY.name,
+        fields.CHILDBIRTHDAY.validations,
+      ),
+      registerPrivacyPoliciesInput: () => register(
         fields.PRIVACYPOLICIES.name,
         fields.PRIVACYPOLICIES.validations,
       ),
@@ -140,4 +184,4 @@ const useRegisterForm = () => {
   ];
 };
 
-export default useRegisterForm;
+export default useProfileForm;

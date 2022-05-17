@@ -15,7 +15,14 @@ function Header() {
           </Link>
         </div>
         <nav>
-          <ul>
+          <ul className="grid grid-flow-col gap-4">
+            <li>
+              <Link href={routes.PROFILE}>
+                <a className="text-secondary-0 font-bold hover:underline">
+                  Perfil
+                </a>
+              </Link>
+            </li>
             <li>
               <button
                 type="button"

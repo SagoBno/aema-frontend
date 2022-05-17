@@ -3,7 +3,7 @@ import { useState } from 'react';
 import UserInfo from './UserInfo';
 import ChildInfo from './ChildInfo';
 
-function RegisterForm({
+function ProfileForm({
   onSubmit,
   parentFirstNameInput,
   parentLastNameInput,
@@ -17,10 +17,11 @@ function RegisterForm({
   privacyPoliciesInput,
   errors,
   isSubmitting,
+  isEditing = false,
 }) {
   const [page, setPage] = useState(1);
 
-  const sendToPageIfErros = () => {
+  const sendToPageIfErrors = () => {
     const firstPageHasError = [
       errors.parentFirstName,
       errors.parentLastName,
@@ -37,7 +38,7 @@ function RegisterForm({
   return (
     <form
       onSubmit={(e) => {
-        sendToPageIfErros();
+        sendToPageIfErrors();
         onSubmit(e);
       }}
     >
@@ -61,10 +62,11 @@ function RegisterForm({
           privacyPoliciesInput={privacyPoliciesInput}
           isSubmitting={isSubmitting}
           onPreviousPage={() => setPage((prevPage) => prevPage - 1)}
+          isEditing={isEditing}
         />
       )}
     </form>
   );
 }
 
-export default RegisterForm;
+export default ProfileForm;

@@ -1,10 +1,16 @@
 import React from 'react';
-import HappyLogin from '../illustrations/HappyLogin';
-import useRegisterForm from '../hooks/forms/useRegisterForm';
-import useUser from '../hooks/useUser';
-import routes from '../config/routes';
-import AuthCard from '../components/AuthCard';
-import RegisterForm from '../components/@forms/RegisterForm';
+
+import { signup } from 'services/auth';
+
+import routes from 'config/routes';
+
+import useUser from 'hooks/useUser';
+import useProfileForm from 'hooks/forms/useProfileForm';
+
+import AuthCard from 'components/AuthCard';
+import ProfileForm from 'components/@forms/ProfileForm';
+
+import HappyLogin from 'illustrations/HappyLogin';
 
 function RegisterPage() {
   useUser({ ifLoggedRedirectTo: routes.HOME });
@@ -13,19 +19,19 @@ function RegisterPage() {
     {
       errors,
       isSubmitting,
-      parentFirstNameInput,
-      parentLastNameInput,
-      parentBirthdayInput,
-      emailInput,
-      passwordInput,
-      childFirstNameInput,
-      childLastNameInput,
-      genreInput,
-      childBirthdayInput,
-      privacyPoliciesInput,
+      registerParentFirstNameInput,
+      registerParentLastNameInput,
+      registerParentBirthdayInput,
+      registerEmailInput,
+      registerPasswordInput,
+      registerChildFirstNameInput,
+      registerChildLastNameInput,
+      registerGenreInput,
+      registerChildBirthdayInput,
+      registerPrivacyPoliciesInput,
     },
     { onSubmit },
-  ] = useRegisterForm();
+  ] = useProfileForm({ onSubmit: signup });
 
   return (
     <main className="flex items-center justify-center">
@@ -35,19 +41,19 @@ function RegisterPage() {
             <AuthCard
               title="Regístrate"
               content={(
-                <RegisterForm
+                <ProfileForm
                   errors={errors}
                   isSubmitting={isSubmitting}
-                  parentFirstNameInput={parentFirstNameInput}
-                  parentLastNameInput={parentLastNameInput}
-                  parentBirthdayInput={parentBirthdayInput}
-                  emailInput={emailInput}
-                  passwordInput={passwordInput}
-                  childFirstNameInput={childFirstNameInput}
-                  childLastNameInput={childLastNameInput}
-                  genreInput={genreInput}
-                  childBirthdayInput={childBirthdayInput}
-                  privacyPoliciesInput={privacyPoliciesInput}
+                  parentFirstNameInput={registerParentFirstNameInput()}
+                  parentLastNameInput={registerParentLastNameInput()}
+                  parentBirthdayInput={registerParentBirthdayInput()}
+                  emailInput={registerEmailInput()}
+                  passwordInput={registerPasswordInput()}
+                  childFirstNameInput={registerChildFirstNameInput()}
+                  childLastNameInput={registerChildLastNameInput()}
+                  genreInput={registerGenreInput()}
+                  childBirthdayInput={registerChildBirthdayInput()}
+                  privacyPoliciesInput={registerPrivacyPoliciesInput()}
                   onSubmit={onSubmit}
                 />
               )}
