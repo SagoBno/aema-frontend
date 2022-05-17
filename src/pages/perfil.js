@@ -23,7 +23,7 @@ function ProfilePage() {
   ] = useProfileForm({ user, onSubmit: updateUser });
 
   return (
-    <main className="w-full h-full p-5 md:p-8 bg-general-bg">
+    <main className="w-full h-full bg-general-bg overflow-y-auto p-5">
       <h1 className="text-center text-3xl font-bold mt-5">Actualizar perfil</h1>
       <div className="mt-10">
         <ProfileForm

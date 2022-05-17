@@ -8,7 +8,7 @@ function Modal({
       <div
         className="fixed inset-0 z-50 h-screen w-screen"
       >
-        <div className="grid grid-rows-modal my-6 mx-auto max-w-3xl h-[stretch] rounded-lg shadow-lg bg-general-bg">
+        <div className="grid grid-rows-modal my-6 mx-auto max-w-3xl h-[calc(100%-3rem)] rounded-lg shadow-lg bg-general-bg">
           <header className="p-5 border-b border-solid border-secondary-100">
             <h3 className="text-3xl font-semibold">
               {title}
