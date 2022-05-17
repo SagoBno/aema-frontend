@@ -1,5 +1,9 @@
 import { getDiffInWeeks } from './dates';
 
-const validateAvailability = (lastSubmitDate) => getDiffInWeeks(new Date(), lastSubmitDate) >= 2;
+const validateAvailability = (lastSubmitDate) => {
+  const userHasNoRecords = !lastSubmitDate;
+  if (userHasNoRecords) return true;
+  return getDiffInWeeks(new Date(), lastSubmitDate) >= 2;
+};
 
 export default validateAvailability;

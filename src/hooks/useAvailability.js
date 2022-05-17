@@ -21,7 +21,7 @@ const useAvailability = ({ serverSaysIsAvailable } = {}) => {
   }, [lastUserAnswer, userAnswersAreLoading]);
 
   return {
-    availability: serverSaysIsAvailable ?? (availability || !lastUserAnswer),
+    availability: serverSaysIsAvailable === true ? serverSaysIsAvailable : availability,
     lastSubmitDate: lastUserAnswer?.createdAt,
     nextAvailableDate: lastUserAnswer?.createdAt ? addWeeks(lastUserAnswer.createdAt, 2) : null,
   };
