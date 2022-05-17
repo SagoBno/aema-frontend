@@ -1,57 +1,33 @@
 import React from 'react';
 
-function Modal({ setShowModal, title }) {
+function Modal({
+  title, body, footer,
+}) {
   return (
-    <div
-      className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-      id="exampleModalScrollable"
-      tabIndex="-1"
-      aria-labelledby="exampleModalScrollableLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
-        <div
-          className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
-        >
-          <div
-            className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
-          >
-            <h5 className="text-xl font-medium leading-normal text-gray-800" id="exampleModalScrollableLabel">
-              {title}
-            </h5>
-            <button
-              onClick={setShowModal(true)}
-              type="button"
-              className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            />
-          </div>
-          <div className="modal-body relative p-4">
-            <p>
-              This is some placeholder content to show the scrolling behavior for modals.
-              We use repeated line breaks to demonstrate how content can exceed minimum inner
-              height, thereby showing inner scrolling. When content becomes longer than the
-              predefined max-height of modal, content will be cropped and scrollable within
-              the modal.
-            </p>
-            <p>This content should appear at the bottom after you scroll.</p>
-          </div>
-          <div
-            className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
-          >
-            <button
-              onClick={setShowModal(true)}
-              type="button"
-              className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+    <>
+      <div
+        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+      >
+        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+          {/* content */}
+          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            {/* header */}
+            <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+              <h3 className="text-3xl font-semibold">
+                {title}
+              </h3>
+            </div>
+            <div className="relative p-6 flex-auto">
+              {body}
+            </div>
+            <div className="flex items-center justify-end p-2 border-t border-solid border-slate-200 rounded-b">
+              {footer}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="opacity-25 fixed inset-0 z-40 bg-black" />
+    </>
   );
 }
 

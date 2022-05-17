@@ -7,6 +7,7 @@ import CheckBox from 'components/@common/CheckBox';
 import TextField from 'components/@common/TextField';
 import DatePicker from 'components/@common/DatePicker';
 import Modal from 'components/@common/Modal';
+import PrivacyPolicies from 'components/PrivacyPolicies';
 
 function ChildInfo({
   errors,
@@ -49,12 +50,13 @@ function ChildInfo({
         error={errors.childBirthday}
         inputProps={childBirthdayInput}
       />
+
       <CheckBox
         label={(
           <div>
             Acepto las&nbsp;
             <button
-              onClick={setShowModal(true)}
+              onClick={() => setShowModal(true)}
               type="button"
               className="underline text-primary-500 visited:text-primary-300"
             >
@@ -67,13 +69,6 @@ function ChildInfo({
         error={errors.privacyPolicies}
         inputProps={privacyPoliciesInput}
       />
-      { showModal && (
-        <Modal
-          title="Hola"
-          setShowModal={setShowModal}
-        />
-      )}
-
       <div className="text-center mt-6 grid grid-cols-2 gap-5">
         <button
           className="c_previous-step-button w-full"
@@ -91,6 +86,22 @@ function ChildInfo({
           {isSubmitting ? <LoaderIcon className="mx-auto py-2" /> : 'Regístrate'}
         </button>
       </div>
+      {showModal ? (
+        <Modal
+          title="Politicas de privacidad"
+          setShowModal={setShowModal}
+          body={<PrivacyPolicies />}
+          footer={(
+            <button
+              className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              type="button"
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          )}
+        />
+      ) : null}
     </>
   );
 }
