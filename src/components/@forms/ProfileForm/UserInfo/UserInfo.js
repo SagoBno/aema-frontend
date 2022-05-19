@@ -14,16 +14,16 @@ function UserInfo({
     <>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <TextField
-          label="Nombre"
+          label="Nombre del padre"
           type="text"
-          placeholder="Nombre"
+          placeholder="Nombre del padre"
           error={errors.parentFirstName}
           inputProps={parentFirstNameInput}
         />
         <TextField
-          label="Apellido"
+          label="Apellido del padre"
           type="text"
-          placeholder="Apellido"
+          placeholder="Apellido del padre"
           error={errors.parentLastName}
           inputProps={parentLastNameInput}
         />
