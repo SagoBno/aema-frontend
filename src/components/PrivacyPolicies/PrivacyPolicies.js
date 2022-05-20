@@ -217,14 +217,6 @@ function PrivacyPolicies() {
             datos relativos a la salud, a la vida sexual y los datos
             biométricos.
           </p>
-          <br />
-          <p>
-            AEMA apoyando la equidad, recolecta datos sensibles como él
-            origen racial o étnico y situaciones de vulnerabilidad; de igual
-            manera, se puede recolectar datos biométricos con el fin de validar
-            la información de conocimiento del cliente y/o en el ejercicio de
-            las funciones de seguridad de la Entidad.
-          </p>
         </li>
         <br />
         <li>
@@ -301,7 +293,7 @@ function PrivacyPolicies() {
             <br />
             <li className="list-disc">
               Para presentar una solicitud de corrección, actualización o supresión de datos,
-              o para presentar reclamo por presunto incumplimiento de los deberes dAEMA
+              o para presentar reclamo por presunto incumplimiento de los deberes de AEMA
               relacionados con la Protección de Datos, el Titular puede realizar la solicitud
               por escrito y de manera presencial en las Oficinas correspondientes. La
               solicitud o reclamo debe efectuarse a través de comunicación dirigida a nombre
@@ -406,7 +398,7 @@ function PrivacyPolicies() {
             <br />
             <li className="list-disc">
               Garantizar al titular, en todo tiempo, el pleno y efectivo ejercicio del derecho de
-              hábeas data.
+              habeas data.
             </li>
             <br />
             <li className="list-disc">
@@ -425,7 +417,7 @@ function PrivacyPolicies() {
             </li>
             <br />
             <li className="list-disc">
-              Adoptar las políticas y procedimiento de tratamiento de datos personales dAEMA,
+              Adoptar las políticas y procedimiento de tratamiento de datos personales de AEMA,
               para garantizar el adecuado cumplimiento de la ley y, en especial, para la atención de
               consultas y reclamos por parte de los titulares.
             </li>
