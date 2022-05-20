@@ -274,11 +274,10 @@ function PrivacyPolicies() {
           <ul className="pl-4">
             <li className="list-disc">
               Para consulta de datos personales, solicitud de la autorización o de información
-              sobre el uso dado a los datos, se puede realizar la consulta por escrito y de
-              manera presencial en las Oficinas dAEMA. La consulta debe ser a través
-              de comunicación dirigida a nombre dAEMA, con el nombre completo del
-              titular, la descripción de la consulta, la dirección de residencia y el teléfono
-              de contacto.
+              sobre el uso dado a los datos, se puede realizar la consulta por escrito. La
+              consulta debe ser a través de comunicación dirigida a nombre de AEMA, con el
+              nombre completo del titular, la descripción de la consulta, la dirección de residencia
+              y el teléfono de contacto.
             </li>
             <br />
             <li className="list-disc">
