@@ -4,7 +4,7 @@ import { ErrorMessage } from '@hookform/error-message';
 function TextField({ label, error, inputProps }) {
   return (
     <div className="w-full mt-3">
-      <label className="block uppercase text-secondary-400 text-xs font-bold">
+      <label className="block text-secondary-400 text-xs font-bold">
         {label}
       </label>
       <select

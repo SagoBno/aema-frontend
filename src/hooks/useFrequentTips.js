@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import FrequentTip from 'components/@common/FrequentTip';
 
-const FREQUENCY = 1000;
+const FREQUENCY = 90000;
 const DURATION = 40000;
 const POSITION = 'bottom-right';
 

@@ -12,18 +12,19 @@ function UserInfo({
 }) {
   return (
     <>
+      <p className="text-secondary-400 font-bold text-lg">Datos del padre o tutor</p>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <TextField
-          label="Nombre del padre"
+          label="Nombre"
           type="text"
-          placeholder="Nombre del padre"
+          placeholder="Nombre"
           error={errors.parentFirstName}
           inputProps={parentFirstNameInput}
         />
         <TextField
-          label="Apellido del padre"
+          label="Apellido"
           type="text"
-          placeholder="Apellido del padre"
+          placeholder="Apellido"
           error={errors.parentLastName}
           inputProps={parentLastNameInput}
         />

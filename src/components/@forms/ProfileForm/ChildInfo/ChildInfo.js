@@ -23,18 +23,19 @@ function ChildInfo({
   const [showModal, setShowModal] = useState(false);
   return (
     <>
+      <p className="text-secondary-400 font-bold text-lg">Datos del adolescente</p>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <TextField
-          label="Nombre del hijo"
+          label="Nombre"
           type="text"
-          placeholder="Nombre del hijo"
+          placeholder="Nombre"
           error={errors.childFirstName}
           inputProps={childFirstNameInput}
         />
         <TextField
-          label="Apellido del hijo"
+          label="Apellido"
           type="text"
-          placeholder="Apellido del hijo"
+          placeholder="Apellido"
           error={errors.childLastName}
           inputProps={childLastNameInput}
         />
@@ -70,7 +71,7 @@ function ChildInfo({
         error={errors.privacyPolicies}
         inputProps={privacyPoliciesInput}
       />
-      <div className="text-center mt-6 grid grid-cols-2 gap-5">
+      <div className="text-center mt-6 grid grid-rows-2 md:grid-cols-2 gap-5">
         <button
           className="c_previous-step-button w-full"
           type="button"
