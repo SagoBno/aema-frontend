@@ -5,14 +5,14 @@ import { useRouter } from 'next/router';
 
 import routes from 'config/routes';
 import StartBeck from 'icons/StartBeck';
-import RecordBook from 'icons/RecordBook';
+import ReportBook from 'icons/ReportBook';
 import Specialists from 'icons/Specialists';
 
 const nav = [
   {
     route: routes.HOME,
     title: 'Historial',
-    icon: <RecordBook />,
+    icon: <ReportBook />,
   },
   {
     route: routes.INVENTORY,

@@ -1,6 +1,6 @@
 // https://iconoir.com/
 
-function RecordBook() {
+function ReportBook() {
   return (
     <svg
       width="24"
@@ -32,4 +32,4 @@ function RecordBook() {
   );
 }
 
-export default RecordBook;
+export default ReportBook;

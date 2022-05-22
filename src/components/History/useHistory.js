@@ -9,11 +9,11 @@ const csvHeaders = ['Id', 'Fecha', 'Pregunta', 'Respuesta'];
 const DEFAULT_HISTORY = {};
 
 const useHistory = ({ userAnswers }) => {
-  const [selectedRecord, setSelectedRecord] = useState();
+  const [selectedReport, setSelectedReport] = useState();
 
-  const onSelectRecord = (recordKey) => {
-    const isSelected = selectedRecord === recordKey;
-    return setSelectedRecord(() => (isSelected ? null : recordKey));
+  const onSelectReport = (reportKey) => {
+    const isSelected = selectedReport === reportKey;
+    return setSelectedReport(() => (isSelected ? null : reportKey));
   };
 
   const history = userAnswers?.reduce((accumulator, current) => {
@@ -38,10 +38,10 @@ const useHistory = ({ userAnswers }) => {
   }, {}) ?? DEFAULT_HISTORY;
 
   const onDownloadUserAnswers = () => getCsvExporter({
-    filename: selectedRecord,
-    title: `Aquí tienes tus respuestas del ${selectedRecord}.`,
+    filename: selectedReport,
+    title: `Aquí tienes tus respuestas del ${selectedReport}.`,
     headers: csvHeaders,
-  }).generateCsv(Object.values(history[selectedRecord]));
+  }).generateCsv(Object.values(history[selectedReport]));
 
   const onDownloadHistory = () => getCsvExporter({
     filename: 'historial',
@@ -50,8 +50,8 @@ const useHistory = ({ userAnswers }) => {
   }).generateCsv(Object.values(history).flat());
 
   return [
-    { history, records: Object.keys(history), selectedRecord },
-    { onSelectRecord, onDownloadUserAnswers, onDownloadHistory },
+    { history, reports: Object.keys(history), selectedReport },
+    { onSelectReport, onDownloadUserAnswers, onDownloadHistory },
   ];
 };
 

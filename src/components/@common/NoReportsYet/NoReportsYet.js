@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 import routes from 'config/routes';
-import NoRecords from 'illustrations/NoRecords';
+import NoReports from 'illustrations/NoReports';
 
-function NoRecordsYet() {
+function NoReportsYet() {
   return (
     <div className="flex flex-col items-center text-center">
-      <NoRecords />
-      <p className="mt-10 text-2xl">No tienes registros aun.</p>
+      <NoReports />
+      <p className="mt-10 text-2xl">No tienes reportes aun.</p>
       <Link href={routes.INVENTORY}>
         <a className="c_primary-button max-w-fit mt-5">Iniciar</a>
       </Link>
@@ -15,4 +15,4 @@ function NoRecordsYet() {
   );
 }
 
-export default NoRecordsYet;
+export default NoReportsYet;

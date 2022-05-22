@@ -1,21 +1,21 @@
 import Download from 'icons/Download';
 
-import Record from './Record';
+import Report from './Report';
 
-function RecordList({
-  records,
-  selectedRecord,
-  onSelectRecord,
+function ReportList({
+  reports,
+  selectedReport,
+  onSelectReport,
   isLoading,
   onDownloadHistory,
 }) {
-  const recordsToShow = isLoading ? new Array(3).fill(null) : records;
+  const reportsToShow = isLoading ? new Array(3).fill(null) : reports;
 
   return (
     <>
       <p className="font-bold pb-4 text-lg p-4 flex items-center">
-        Registros
-        {selectedRecord && (
+        Reportes
+        {selectedReport && (
           <button
             type="button"
             title="Descargar respuestas"
@@ -26,15 +26,15 @@ function RecordList({
         )}
       </p>
       <ul className="md:w-fit h-full overflow-y-auto">
-        {recordsToShow.map((record, index) => {
-          const isSelected = record === selectedRecord;
+        {reportsToShow.map((report, index) => {
+          const isSelected = report === selectedReport;
           return (
-            <Record
-              key={record ?? `record-${index}`}
-              onSelectRecord={onSelectRecord}
+            <Report
+              key={report ?? `report-${index}`}
+              onSelectReport={onSelectReport}
               isLoading={isLoading}
               isSelected={isSelected}
-              record={record}
+              report={report}
             />
           );
         })}
@@ -43,4 +43,4 @@ function RecordList({
   );
 }
 
-export default RecordList;
+export default ReportList;

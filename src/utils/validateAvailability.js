@@ -1,8 +1,8 @@
 import { getDiffInWeeks } from './dates';
 
 const validateAvailability = (lastSubmitDate) => {
-  const userHasNoRecords = !lastSubmitDate;
-  if (userHasNoRecords) return true;
+  const userHasNoReports = !lastSubmitDate;
+  if (userHasNoReports) return true;
   return getDiffInWeeks(new Date(), lastSubmitDate) >= 2;
 };
 

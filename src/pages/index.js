@@ -1,9 +1,8 @@
 import History from 'components/History';
+import NoReportsYet from 'components/@common/NoReportsYet';
 import LayoutWithNavbar from 'components/@layouts/LayoutWithNavbar';
 
 import useUserAnswers from 'hooks/useUserAnswers';
-
-import NoRecordsYet from 'components/@common/NoRecordsYet/NoRecordsYet';
 
 function HistoryPage() {
   const {
@@ -14,7 +13,7 @@ function HistoryPage() {
   if (!isLoading && !userAnswers.length) {
     return (
       <main className="w-full h-full bg-general-bg flex items-center justify-center">
-        <NoRecordsYet />
+        <NoReportsYet />
       </main>
     );
   }

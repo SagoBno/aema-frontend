@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import Arrow from 'icons/Arrow';
 
-function Record({
-  record, isSelected, isLoading, onSelectRecord,
+function Report({
+  report, isSelected, isLoading, onSelectReport,
 }) {
   return (
     <li>
@@ -12,14 +12,14 @@ function Record({
           'cursor-pointer hover:bg-secondary-100/30': !isLoading,
         })}
         type="button"
-        onClick={() => onSelectRecord(record)}
+        onClick={() => onSelectReport(report)}
       >
         <p
           className={cn('capitalize text-sm', {
             'animate-pulse bg-secondary-100 rounded-lg w-56 h-6 block': isLoading,
           })}
         >
-          {record}
+          {report}
         </p>
         <Arrow
           className={cn('ml-2 text-secondary-300', {
@@ -32,4 +32,4 @@ function Record({
   );
 }
 
-export default Record;
+export default Report;

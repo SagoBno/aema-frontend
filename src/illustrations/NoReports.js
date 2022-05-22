@@ -1,6 +1,6 @@
 // https://undraw.co/illustrations
 
-function NoRecords() {
+function NoReports() {
   return (
     <svg
       className="w-[70px] h-[70px] md:w-[150px] md:h-[150px] lg:w-[250px] lg:h-[250px]"
@@ -44,4 +44,4 @@ function NoRecords() {
   );
 }
 
-export default NoRecords;
+export default NoReports;
