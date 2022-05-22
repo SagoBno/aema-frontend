@@ -49,7 +49,7 @@ function SpecialistsPage() {
 
   return (
     <main className="bg-transparent h-full overflow-y-auto">
-      <h1 className="text-center text-3xl font-bold mt-5">Especialistas</h1>
+      <h1 className="text-center text-3xl font-bold mt-5">Psicólogos</h1>
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-4 md:mx-10 mt-10 pb-5 overflow-y-auto">
         {psychologists.map((psychologist, psychologistIndex) => (
           <li

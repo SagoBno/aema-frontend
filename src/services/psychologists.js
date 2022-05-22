@@ -10,7 +10,7 @@ const client = axios.create({
 // eslint-disable-next-line import/prefer-default-export
 export const getPsychologists = async () => {
   const errorMessages = {
-    default: 'Error obtener los especialistas, intentalo más tarde.',
+    default: 'Error obtener los psicólogos, intentalo más tarde.',
   };
 
   try {

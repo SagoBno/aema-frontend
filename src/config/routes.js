@@ -1,6 +1,6 @@
 const routes = {
   TIP: '/tip',
-  SPECIALISTS: '/especialistas',
+  SPECIALISTS: '/psicologos',
   INVENTORY: '/inventario',
   LOGIN: '/iniciar-sesion',
   SIGNUP: '/registrate',

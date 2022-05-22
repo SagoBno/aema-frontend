@@ -21,7 +21,7 @@ const nav = [
   },
   {
     route: routes.SPECIALISTS,
-    title: 'Especialistas',
+    title: 'Psicólogos',
     icon: <Specialists />,
   },
 ];
