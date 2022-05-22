@@ -22,7 +22,7 @@
 
 .c_primary-button--disabled,
 .c_next-step-button--disabled {
-  @apply pointer-events-auto cursor-not-allowed;
+  @apply pointer-events-none cursor-not-allowed;
 }
 
 /* PRIMARY BUTTON */
