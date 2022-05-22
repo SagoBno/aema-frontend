@@ -12,7 +12,9 @@ function UserInfo({
 }) {
   return (
     <>
-      <p className="text-secondary-400 font-bold text-lg">Datos del padre o tutor</p>
+      <p className="text-secondary-400 font-bold text-lg">
+        Datos del padre o tutor
+      </p>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <TextField
           label="Nombre"
@@ -54,7 +56,7 @@ function UserInfo({
           inputProps={passwordInput}
         />
       )}
-      <div className="text-center mt-6 grid grid-cols-2 gap-5">
+      <div className="text-center mt-6 md:grid md:grid-cols-2 md:gap-5">
         <button
           className="c_next-step-button w-full col-start-2"
           type="button"
