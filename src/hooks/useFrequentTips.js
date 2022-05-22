@@ -26,7 +26,7 @@ const useFrequentTips = () => {
   useEffect(() => {
     const timeoutId = setTimeout(
       () => {
-        const newToast = toast.custom(
+        toast.custom(
           (t) => <FrequentTip visible={t.visible} id={t.id} tip={TIPS[tipIndex]} />,
           {
             id: 'frequent-tips',

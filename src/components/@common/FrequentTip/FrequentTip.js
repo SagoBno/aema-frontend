@@ -5,7 +5,7 @@ function FrequentTip({ visible, id, tip }) {
   return (
     <div
       className={cn(
-        'text-sm max-w-md w-full bg-general-bg shadow-lg rounded-lg pointer-events-auto flex justify-between ring-1 ring-secondary-400 ring-opacity-5',
+        'text-sm max-w-md w-full bg-primary-100 shadow-lg rounded-lg pointer-events-auto flex justify-between ring-1 ring-secondary-400 ring-opacity-5',
         {
           'animate-enter': visible,
           'animate-leave': !visible,
