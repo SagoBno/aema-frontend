@@ -22,7 +22,7 @@ function BeckInstructions() {
           <li className="mt-2">
             Selecciona solo una respuesta en cada grupo para continuar
             respondiendo el cuestionario. Si varias respuestas del mismo grupo
-            te parecen apropiados, selecciona la de más te acerque a como eres o
+            te parecen apropiados, selecciona la que más se acerque a como eres o
             te sientes.
           </li>
           <li className="mt-2">
