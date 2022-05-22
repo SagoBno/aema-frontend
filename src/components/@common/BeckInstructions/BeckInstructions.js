@@ -6,10 +6,10 @@ import BeckInstructionsIllustration from 'illustrations/BeckInstructions';
 
 function BeckInstructions() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="">
       <p className="text-center font-bold text-2xl">Instrucciones</p>
       <small className="text-secondary-200 font-light text-sm">Inventario de depresión Beck II</small>
-      <BeckInstructionsIllustration />
+      <BeckInstructionsIllustration className="mx-auto" />
       <div className="px-10 md:px-5 max-w-lg text-center">
         <p className="text-center font-bold text-xl">
           Sabemos que los chicos y chicas como tú tienen diferentes sentimientos

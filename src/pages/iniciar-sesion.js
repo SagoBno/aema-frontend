@@ -15,8 +15,8 @@ function LoginPage() {
 
   return (
     <main className="flex items-center justify-center">
-      <div className="shadow-lg border-0 w-[80vw] min-h-[80vh] mx-auto grid grid-cols-1 md:grid-cols-2">
-        <section className="w-full flex items-center justify-center bg-general-bg rounded-lg md:rounded-tl-lg md:rounded-bl-lg">
+      <div className="shadow-lg border-0 w-[80vw] min-h-[80vh] mx-auto grid grid-cols-1 md:grid-cols-2 rounded-lg">
+        <section className="w-full flex items-center justify-center bg-general-bg rounded-lg md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
           <div className="w-fit">
             <AuthCard
               title="Iniciar sesión ✌️"

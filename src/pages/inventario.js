@@ -23,7 +23,7 @@ function BeckPage({ isAvailable }) {
 
   if (!query.page) {
     return (
-      <main className="w-full h-full bg-general-bg overflow-y-auto md:flex md:items-center md:justify-center p-5">
+      <main className="h-full bg-general-bg overflow-y-auto mx-auto w-fit text-center p-5">
         <BeckInstructions />
       </main>
     );

@@ -1,9 +1,11 @@
 // https://undraw.co/illustrations
 
-function BeckInstructions() {
+import cn from 'classnames';
+
+function BeckInstructions({ className }) {
   return (
     <svg
-      className="w-[250px] h-[250px] md:w-[250px] md:h-[250px]"
+      className={cn('w-[250px] h-[250px] md:w-[250px] md:h-[250px]', className)}
       viewBox="0 0 856.385 559.94"
     >
       <g
