@@ -5,8 +5,9 @@ import routes from 'config/routes';
 function AuthCard({ title, content, isLogin = false }) {
   return (
     <div className="w-full p-10">
-      <div className="w-3/5 mx-auto">
+      <div className="w-3/5 mx-auto text-center">
         <Image src="/img/logo.png" height={100} width={200} alt={title} />
+        <p className="text-primary-500 font-bold text-sm ">Herramienta para conocer la salud emocional de los adolescentes</p>
       </div>
       <p className="text-secondary-400 mt-6 font-bold text-2xl">{title}</p>
       {isLogin ? (
