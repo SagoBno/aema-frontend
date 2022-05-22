@@ -4,7 +4,7 @@ import { formatDate } from '../../utils/dates';
 import { getCsvExporter } from '../../utils/csv';
 import { answersById, questionsById } from '../../utils/beck';
 
-const csvHeaders = ['Id', 'Fecha', 'Pregunta', 'Respuesta'];
+const csvHeaders = ['Id', 'Fecha', 'Pregunta', 'Respuesta', 'Valor'];
 
 const DEFAULT_HISTORY = {};
 
@@ -31,6 +31,7 @@ const useHistory = ({ userAnswers }) => {
       questionId: question.id,
       answer: answer.name,
       answerId: answer.id,
+      value: answer.value,
       createdAt: current.createdAt,
     });
 
@@ -41,16 +42,44 @@ const useHistory = ({ userAnswers }) => {
     filename: selectedReport,
     title: `Aquí tienes tus respuestas del ${selectedReport}.`,
     headers: csvHeaders,
-  }).generateCsv(Object.values(history[selectedReport]));
+  }).generateCsv(
+    Object.values(history[selectedReport]).map(
+      ({
+        id, date, question, answer, value,
+      }) => ({
+        id,
+        date,
+        question,
+        answer,
+        value,
+      }),
+    ),
+  );
 
   const onDownloadHistory = () => getCsvExporter({
     filename: 'historial',
     title: 'Aquí tienes tu historial de respuestas.',
     headers: csvHeaders,
-  }).generateCsv(Object.values(history).flat());
+  }).generateCsv(
+    Object.values(history)
+      .flat()
+      .map(({
+        id, date, question, answer, value,
+      }) => ({
+        id,
+        date,
+        question,
+        answer,
+        value,
+      })),
+  );
 
   return [
-    { history, reports: Object.keys(history), selectedReport },
+    {
+      history,
+      reports: Object.keys(history),
+      selectedReport,
+    },
     { onSelectReport, onDownloadUserAnswers, onDownloadHistory },
   ];
 };
