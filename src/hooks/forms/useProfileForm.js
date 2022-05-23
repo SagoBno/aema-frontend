@@ -25,7 +25,7 @@ const fields = {
     validations: {
       required: 'Este campo es requerido.',
       max: {
-        value: formatDate(dayjs().subtract(18, 'year'), 'DD/MM/YYYY'),
+        value: formatDate(dayjs().subtract(18, 'year'), 'YYYY/MM/DD'),
         message: 'Debes ser mayor de edad para poder registrarte.',
       },
     },
@@ -69,7 +69,7 @@ const fields = {
     validations: {
       required: 'Este campo es requerido.',
       max: {
-        value: formatDate(dayjs().subtract(13, 'year'), 'DD/MM/YYYY'),
+        value: formatDate(dayjs().subtract(13, 'year'), 'YYYY/MM/DD'),
         message: 'Tu hijo debe tener 13 años o mas.',
       },
     },
